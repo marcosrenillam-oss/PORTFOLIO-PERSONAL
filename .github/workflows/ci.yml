@@ -1,0 +1,24 @@
+name: Verify portfolio
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Type check
+        run: npm run typecheck
+      - name: Content structure (ES/EN parity, ids, images)
+        run: npm run content:check
+      - name: Committed PDFs match current content
+        run: npm run pdf:check
+      - name: Regenerate PDFs + production build
+        run: npm run build

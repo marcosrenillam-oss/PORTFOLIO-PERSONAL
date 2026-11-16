@@ -1,0 +1,44 @@
+{
+  "name": "marcos-renilla-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Marcos Renilla — portfolio web, CV PDF and portfolio PDF generated from a single content source.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "prebuild": "npm run export:all",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "content:check": "tsx scripts/check-content.ts",
+    "export:cv": "tsx scripts/export-pdf.tsx cv",
+    "export:portfolio": "tsx scripts/export-pdf.tsx portfolio",
+    "export:all": "tsx scripts/export-pdf.tsx all",
+    "pdf:check": "tsx scripts/check-pdfs.ts",
+    "verify": "npm run typecheck && npm run content:check && npm run export:all && npm run pdf:check && next build"
+  },
+  "engines": {
+    "node": ">=20.9"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.5",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "postcss": "^8.5.33",
+    "tailwindcss": "^4.3.5",
+    "tsx": "^4.23.15",
+    "typescript": "5.9",
+    "unpdf": "^2.2.1"
+  },
+  "dependencies": {
+    "@fontsource/instrument-serif": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/space-grotesk": "^5.3.0",
+    "@react-pdf/renderer": "^4.9.0",
+    "motion": "^14.14.0",
+    "next": "^16.4.6",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "type": "module"
+}

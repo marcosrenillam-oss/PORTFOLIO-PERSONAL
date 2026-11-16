@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+/* ───────────────────────── Design tokens ─────────────────────────
+   Keep colours in sync with lib/brand.ts (used by the PDFs). */
+@theme inline {
+  --color-ivory: #f3f0e9;
+  --color-charcoal: #171717;
+  --color-stone: #dcd9d2;
+  --color-steel: #8795a3;
+  --color-steel-ink: #5e6b78;
+  --color-ink-2: #4a4a47;
+  --color-white: #ffffff;
+  --color-graphite: #222221;
+  --color-smoke: #2e2e2c;
+
+  --font-display: var(--font-space-grotesk), "Helvetica Neue", Arial, sans-serif;
+  --font-sans: var(--font-inter), system-ui, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: var(--font-instrument-serif), Georgia, serif;
+
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --text-mega: clamp(4.5rem, 17.5vw, 17rem);
+  --text-giant: clamp(3.25rem, 11vw, 10.5rem);
+  --text-display: clamp(2.5rem, 6.5vw, 6rem);
+  --text-headline: clamp(1.875rem, 3.6vw, 3.25rem);
+  --text-lede: clamp(1.25rem, 2.1vw, 1.75rem);
+}
+
+/* ───────────────────────── Base ───────────────────────── */
+@layer base {
+  html {
+    background: var(--color-ivory);
+    color: var(--color-charcoal);
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-ivory);
+    overflow-x: clip;
+  }
+  ::selection {
+    background: var(--color-charcoal);
+    color: var(--color-ivory);
+  }
+  [data-surface="dark"] ::selection {
+    background: var(--color-ivory);
+    color: var(--color-charcoal);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-steel);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* ───────────────────────── Utilities ───────────────────────── */
+@utility label {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+@utility display-tight {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 0.86;
+}
+
+@utility px-gutter {
+  padding-inline: clamp(1rem, 4vw, 3.5rem);
+}
+
+/* Film grain overlay used on editorial image placeholders. */
+@utility grain {
+  position: relative;
+  isolation: isolate;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.22;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+}
+
+/* Placeholder marker: information still to be added. */
+.placeholder-text {
+  color: var(--color-steel);
+  font-style: normal;
+  text-decoration: underline dotted 1px;
+  text-underline-offset: 0.22em;
+  text-decoration-color: color-mix(in srgb, var(--color-steel) 70%, transparent);
+}
+
+/* Underline micro-interaction for inline links. */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.6s var(--ease-expo);
+}
+.link-underline:hover,
+.link-underline:focus-visible {
+  background-size: 100% 1px;
+  background-position: 0% 100%;
+}
+
+/* Marquee */
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+.animate-marquee {
+  animation: marquee 48s linear infinite;
+}
+
+/* Custom cursor only on fine pointers. */
+@media (hover: hover) and (pointer: fine) {
+  html.has-custom-cursor,
+  html.has-custom-cursor a,
+  html.has-custom-cursor button {
+    cursor: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .animate-marquee {
+    animation: none;
+  }
+}

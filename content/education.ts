@@ -6,12 +6,13 @@ import type { Credential, Education, Language } from "./types";
 
 export const education: Education[] = [
   {
-    id: "education-01",
-    institution: "[ADD EDUCATION]",
-    degree: { es: "[ADD DEGREE]", en: "[ADD DEGREE]" },
-    location: { es: "[ADD LOCATION]", en: "[ADD LOCATION]" },
-    start: "[ADD DATE]",
-    end: "[ADD DATE]",
+    id: "ufv-periodismo",
+    institution: "Universidad Francisco de Vitoria",
+    // As listed on LinkedIn: "Periodismo, Deportivo". Confirm the official degree title.
+    degree: { es: "Periodismo (Deportivo)", en: "Journalism (Sports)" },
+    location: { es: "Madrid, España", en: "Madrid, Spain" },
+    start: "2021",
+    end: "2026",
     details: { es: ["[ADD DETAIL]"], en: ["[ADD DETAIL]"] },
   },
 ];

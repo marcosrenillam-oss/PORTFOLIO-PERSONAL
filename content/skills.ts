@@ -3,48 +3,42 @@ import type { Skills } from "./types";
 /**
  * SKILLS & TOOLS — a single list, no categories, no percentages or levels.
  * Keep ES and EN in the same order and with the same number of items.
- * Selected with Marcos (Nov 2026) from his studies (Journalism, UFV), his radio
- * section at El Toro TV, his work as a hospital porter and his LinkedIn skills.
+ * Selected with Marcos (Nov 2026), oriented to influencer marketing / talent management
+ * internships (e.g. Mugan Agency) while staying valid for communication and marketing roles.
  */
 
 export const skills: Skills = {
   list: {
     es: [
-      "Comunicación oral y locución",
-      "Redacción periodística",
-      "Periodismo deportivo",
+      "Redes sociales (Instagram y TikTok)",
       "Creación de contenido",
-      "Redes sociales",
+      "Ecosistema de creadores e influencers",
+      "Comunicación y relaciones públicas",
+      "Redacción y storytelling",
       "Edición de vídeo y fotografía",
       "Diseño gráfico",
-      "Herramientas de IA y automatización no-code",
-      "Producción de contenido para radio",
-      "Medios digitales",
-      "Investigación y documentación",
-      "Gestión de proyectos",
+      "IA y automatización no-code",
+      "Coordinación y gestión de proyectos",
       "Organización y gestión del tiempo",
+      "Trato con personas",
       "Trabajo en equipo",
-      "Trato con el público",
       "Trabajo bajo presión",
       "Adaptabilidad",
       "Creatividad",
     ],
     en: [
-      "Public speaking & on-air presenting",
-      "Journalistic writing",
-      "Sports journalism",
+      "Social media (Instagram & TikTok)",
       "Content creation",
-      "Social media",
+      "Creator & influencer ecosystem",
+      "Communications & PR",
+      "Writing & storytelling",
       "Video & photo editing",
       "Graphic design",
-      "AI tools & no-code automation",
-      "Radio content production",
-      "Digital media",
-      "Research & fact-finding",
-      "Project management",
-      "Organization & time management",
+      "AI & no-code automation",
+      "Project coordination & management",
+      "Organisation & time management",
+      "People skills",
       "Teamwork",
-      "Dealing with the public",
       "Working under pressure",
       "Adaptability",
       "Creativity",

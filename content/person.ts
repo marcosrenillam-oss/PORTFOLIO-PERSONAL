@@ -20,8 +20,8 @@ export const person: Person = {
     // background removed, toned black & white to the site palette. No AI edits to his appearance.
     src: "/images/profile/portrait-bw-standing.png",
     alt: { es: "Retrato de Marcos Renilla en blanco y negro", en: "Black and white portrait of Marcos Renilla" },
-    width: 964,
-    height: 1149,
+    width: 987,
+    height: 1161,
     cutout: true,
   },
   aboutPhoto: {

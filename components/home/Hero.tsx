@@ -57,6 +57,15 @@ export function Hero({ locale, dict, person, cvHref }: HeroProps) {
         </p>
       </motion.div>
 
+      {/* Soft light behind the portrait so the figure sits in the page, not on top of it */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-0 left-1/2 z-0 h-[75%] w-[120%] -translate-x-1/2 lg:left-auto lg:right-[-6vw] lg:h-[100%] lg:w-[62vw] lg:translate-x-0"
+        style={{ background: "radial-gradient(closest-side at 50% 60%, rgba(220,217,210,0.85), rgba(220,217,210,0.35) 55%, rgba(243,240,233,0) 100%)" }}
+      />
+      {/* Shared film grain over page and photo */}
+      <div aria-hidden className="grain pointer-events-none absolute inset-0 z-[3] opacity-40" />
+
       {/* Portrait: large black & white cut-out anchored to the bottom, behind the name */}
       {person.portrait && (
         <motion.div

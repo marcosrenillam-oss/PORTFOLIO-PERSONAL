@@ -56,7 +56,7 @@ export function PdfImage({
   const file = resolveImage(image);
   if (file && image?.cutout) {
     return (
-      <View style={[{ overflow: "hidden", backgroundColor: brand.stone, justifyContent: "flex-end", alignItems: "center", paddingTop: 16 }, style ?? {}]}>
+      <View style={[{ overflow: "hidden", justifyContent: "flex-end", alignItems: "center" }, style ?? {}]}>
         <Image src={file} style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "50% 100%" }} />
       </View>
     );

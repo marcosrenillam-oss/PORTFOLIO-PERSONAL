@@ -5,7 +5,7 @@ import { useRef } from "react";
 import type { Locale, Person } from "@/content/types";
 import type { Dictionary } from "@/lib/i18n";
 import { ease } from "@/lib/motion";
-import { EditorialImage } from "@/components/ui/EditorialImage";
+import Image from "next/image";
 import { SplitReveal } from "@/components/motion/SplitReveal";
 import { Txt } from "@/components/ui/Txt";
 import { Arrow } from "@/components/ui/Arrow";
@@ -17,17 +17,20 @@ interface HeroProps {
   cvHref: string;
 }
 
-/** Cinematic opening: the name in very large type, rising letter by letter, with an editorial portrait frame. */
+/** Cinematic opening: a large B&W portrait with the name rising letter by letter over it. */
 export function Hero({ locale, dict, person, cvHref }: HeroProps) {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const nameY = useTransform(scrollYProgress, [0, 1], ["0%", reduce ? "0%" : "-12%"]);
   const fade = useTransform(scrollYProgress, [0, 0.8], [1, reduce ? 1 : 0.2]);
+  const portraitY = useTransform(scrollYProgress, [0, 1], ["0%", reduce ? "0%" : "8%"]);
 
   const [first, ...rest] = person.brandName.toUpperCase().split(" ");
   const last = rest.join(" ");
   const year = new Date().getFullYear();
+  const nameClass = "display-tight text-[clamp(4.2rem,17vw,17rem)] uppercase";
+  const nameLines = ["", "pl-[6vw] md:pl-[12vw]"];
 
   const appear = (delay: number) => ({
     initial: { opacity: 0, y: reduce ? 0 : 14 },
@@ -39,10 +42,10 @@ export function Hero({ locale, dict, person, cvHref }: HeroProps) {
     <section
       ref={ref}
       data-surface="light"
-      className="px-gutter relative flex min-h-[100svh] flex-col justify-between overflow-hidden pb-8 pt-24 md:pb-10 md:pt-28"
+      className="px-gutter relative isolate flex min-h-[100svh] flex-col justify-between overflow-hidden bg-ivory pb-8 pt-24 md:pb-10 md:pt-28"
     >
       {/* Meta row */}
-      <motion.div {...appear(0.9)} className="grid grid-cols-2 gap-6 md:grid-cols-12">
+      <motion.div {...appear(0.9)} className="relative z-10 grid grid-cols-2 gap-6 md:grid-cols-12">
         <p className="label md:col-span-3">
           {dict.home.heroEyebrow} <span className="opacity-50">© {year}</span>
         </p>
@@ -54,39 +57,62 @@ export function Hero({ locale, dict, person, cvHref }: HeroProps) {
         </p>
       </motion.div>
 
-      {/* Name + portrait */}
-      <motion.div style={{ y: nameY, opacity: fade }} className="relative mt-10 md:mt-0">
-        <SplitReveal
-          as="h1"
-          by="chars"
-          immediate
-          delay={0.15}
-          stagger={0.045}
-          lines={[first, last]}
-          className="display-tight relative z-10 text-[clamp(3.9rem,15.6vw,15.5rem)] uppercase"
-          lineClassNames={["", "pl-[9vw] md:pl-[10vw]"]}
-        />
-
+      {/* Portrait: large black & white cut-out anchored to the bottom, behind the name */}
+      {person.portrait && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="relative ml-auto mt-8 w-[58%] sm:w-[42%] md:absolute md:bottom-[0.4em] md:right-0 md:mt-0 md:w-[min(21vw,330px)]"
+          aria-hidden={false}
+          className="pointer-events-none absolute bottom-0 left-1/2 z-[1] aspect-[1080/1150] h-[60%] -translate-x-1/2 sm:h-[72%] md:left-auto md:right-[4vw] md:h-[88%] md:translate-x-0 lg:right-[7vw]"
+          style={{ y: portraitY }}
+          initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
+          animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
+          transition={reduce ? { duration: 0 } : { duration: 1.6, ease: ease.quart, delay: 0.25 }}
         >
-          <EditorialImage
-            image={person.portrait}
-            locale={locale}
-            aspect="4 / 5"
-            placeholder="[ADD PROFILE PHOTO]"
-            figure="Fig. 00"
+          <Image
+            src={person.portrait.src}
+            alt={person.portrait.alt[locale]}
+            fill
             priority
-            sizes="(min-width: 768px) 24vw, 60vw"
+            sizes="(min-width: 768px) 60vw, 100vw"
+            className="object-contain object-bottom"
           />
         </motion.div>
-      </motion.div>
+      )}
+
+      {/* Name, two layers: solid charcoal behind the portrait, ivory outline in front of it —
+          the letters read on the page and "cut" through the photo. */}
+      <div className="relative mt-6 md:mt-0">
+        <motion.div style={{ y: nameY, opacity: fade }} className="relative z-0">
+          <SplitReveal
+            as="h1"
+            by="chars"
+            immediate
+            delay={0.15}
+            stagger={0.045}
+            lines={[first, last]}
+            className={nameClass}
+            lineClassNames={nameLines}
+          />
+        </motion.div>
+        <motion.div
+          aria-hidden
+          style={{ y: nameY, opacity: fade, WebkitTextStroke: "1.5px rgba(243,240,233,0.95)" }}
+          className="pointer-events-none absolute inset-0 z-[2] text-transparent"
+        >
+          <SplitReveal
+            as="div"
+            by="chars"
+            immediate
+            delay={0.15}
+            stagger={0.045}
+            lines={[first, last]}
+            className={nameClass}
+            lineClassNames={nameLines}
+          />
+        </motion.div>
+      </div>
 
       {/* Bottom row */}
-      <motion.div {...appear(1.1)} className="mt-10 grid grid-cols-12 items-end gap-6 md:mt-12">
+      <motion.div {...appear(1.1)} className="relative z-10 mt-10 grid grid-cols-12 items-end gap-6 md:mt-12">
         <p className="col-span-12 max-w-md text-base leading-relaxed text-ink-2 md:col-span-5 md:text-[1.0625rem]">
           <Txt>{person.availability[locale]}</Txt>
         </p>

@@ -8,13 +8,13 @@ import type { Contact, Person } from "./types";
 
 export const person: Person = {
   brandName: "Marcos Renilla",
-  fullName: "Marcos Renilla", // [ADD NAME] — replace with the full name you want on the CV if different.
+  fullName: "Marcos Renilla Muñoz", // Used on the CV and in document metadata; the web uses brandName.
   positioning: {
     es: "Comunicación, creatividad y proyectos digitales",
     en: "Communication, Creativity & Digital Projects",
   },
   location: { es: "Madrid, España", en: "Madrid, Spain" },
-  availability: { es: "[ADD AVAILABILITY]", en: "[ADD AVAILABILITY]" },
+  availability: { es: "Incorporación inmediata", en: "Available to start immediately" },
   // [ADD PROFILE PHOTO] — e.g. { src: "/images/profile/portrait.jpg", alt: {...}, width: 1600, height: 2000 }
   portrait: null,
   aboutPhoto: null,

@@ -16,13 +16,12 @@ export const person: Person = {
   location: { es: "Madrid, España", en: "Madrid, Spain" },
   availability: { es: "Incorporación inmediata", en: "Available to start immediately" },
   portrait: {
-    // AI-edited portrait (Canva, generated at Marcos's request from a frame of his own video:
-    // same face and hair, suit added), then background removed and toned black & white to the
-    // site palette. The untouched version from the video is kept as /images/profile/portrait-bw-video.png.
-    src: "/images/profile/portrait-suit-bw.png",
+    // Chest-up cut-out from a frame of Marcos's own video (standing, shoulders straight):
+    // background removed, toned black & white to the site palette. No AI edits to his appearance.
+    src: "/images/profile/portrait-bw-standing.png",
     alt: { es: "Retrato de Marcos Renilla en blanco y negro", en: "Black and white portrait of Marcos Renilla" },
-    width: 1080,
-    height: 1388,
+    width: 964,
+    height: 1149,
     cutout: true,
   },
   aboutPhoto: {

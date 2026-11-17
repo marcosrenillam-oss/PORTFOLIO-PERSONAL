@@ -13,7 +13,7 @@ export const person: Person = {
     es: "Comunicación, creatividad y proyectos digitales",
     en: "Communication, Creativity & Digital Projects",
   },
-  location: { es: "[ADD LOCATION]", en: "[ADD LOCATION]" },
+  location: { es: "Madrid, España", en: "Madrid, Spain" },
   availability: { es: "[ADD AVAILABILITY]", en: "[ADD AVAILABILITY]" },
   // [ADD PROFILE PHOTO] — e.g. { src: "/images/profile/portrait.jpg", alt: {...}, width: 1600, height: 2000 }
   portrait: null,
@@ -21,14 +21,13 @@ export const person: Person = {
 };
 
 export const contact: Contact = {
-  email: "[ADD CONTACT DETAILS]",
-  phone: null, // optional, e.g. "+34 600 000 000"
+  email: "renillamarcos5@gmail.com",
+  phone: "+34 644 20 23 24", // set to null to hide it from the web and the CV
   linkedin: {
     label: "LinkedIn",
-    url: "", // [ADD CONTACT DETAILS] e.g. "https://www.linkedin.com/in/your-handle"
-    display: "[ADD CONTACT DETAILS]",
+    url: "https://www.linkedin.com/in/marcos-renilla-mu%C3%B1oz-855598231",
+    display: "linkedin.com/in/marcos-renilla-muñoz-855598231",
   },
-  // Other professional profiles. Example:
-  // { label: "Instagram", url: "https://instagram.com/handle", display: "@handle" }
-  links: [],
+  // Other professional profiles.
+  links: [{ label: "Instagram", url: "https://www.instagram.com/marcosrenilla/", display: "@marcosrenilla" }],
 };

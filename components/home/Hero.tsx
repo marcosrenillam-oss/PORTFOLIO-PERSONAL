@@ -61,7 +61,7 @@ export function Hero({ locale, dict, person, cvHref }: HeroProps) {
       {person.portrait && (
         <motion.div
           aria-hidden={false}
-          className="pointer-events-none absolute bottom-32 left-1/2 z-[1] h-[50%] -translate-x-1/2 sm:h-[60%] md:bottom-0 md:left-auto md:right-[4vw] md:h-[80%] md:translate-x-0 lg:right-[7vw]"
+          className="pointer-events-none absolute bottom-0 left-1/2 z-[1] h-[58%] -translate-x-1/2 [@media(max-height:700px)]:h-[50%] sm:h-[62%] lg:left-auto lg:right-[7vw] lg:h-[80%] lg:translate-x-0 [@media(max-height:700px)]:lg:h-[80%]"
           style={{ y: portraitY, aspectRatio: `${person.portrait.width} / ${person.portrait.height}` }}
           initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
           animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
@@ -80,7 +80,7 @@ export function Hero({ locale, dict, person, cvHref }: HeroProps) {
 
       {/* Name, two layers: solid charcoal behind the portrait, ivory outline in front of it —
           the letters read on the page and "cut" through the photo. */}
-      <div className="relative mt-6 md:mt-0">
+      <div className="relative mb-auto mt-8 lg:my-0">
         <motion.div style={{ y: nameY, opacity: fade }} className="relative z-0">
           <SplitReveal
             as="h1"

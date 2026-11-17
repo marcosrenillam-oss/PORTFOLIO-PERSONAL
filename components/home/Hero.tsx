@@ -29,8 +29,8 @@ export function Hero({ locale, dict, person, cvHref }: HeroProps) {
   const [first, ...rest] = person.brandName.toUpperCase().split(" ");
   const last = rest.join(" ");
   const year = new Date().getFullYear();
-  const nameClass = "display-tight text-[clamp(4.2rem,17vw,17rem)] uppercase";
-  const nameLines = ["", "pl-[6vw] md:pl-[12vw]"];
+  const nameClass = "display-tight text-[clamp(2.6rem,min(17vw,25svh),17rem)] uppercase";
+  const nameLines = ["", "pl-[6vw] wide:pl-[12vw]"];
 
   const appear = (delay: number) => ({
     initial: { opacity: 0, y: reduce ? 0 : 14 },
@@ -42,7 +42,7 @@ export function Hero({ locale, dict, person, cvHref }: HeroProps) {
     <section
       ref={ref}
       data-surface="light"
-      className="px-gutter relative isolate flex min-h-[100svh] flex-col justify-between overflow-hidden bg-ivory pb-8 pt-24 md:pb-10 md:pt-28"
+      className="px-gutter relative isolate flex min-h-[100svh] flex-col justify-between overflow-hidden bg-ivory pb-8 pt-24 md:pb-10 md:pt-28 [@media(max-height:500px)]:pb-5 [@media(max-height:500px)]:pt-20"
     >
       {/* Meta row */}
       <motion.div {...appear(0.9)} className="relative z-10 grid grid-cols-2 gap-6 md:grid-cols-12">
@@ -57,20 +57,14 @@ export function Hero({ locale, dict, person, cvHref }: HeroProps) {
         </p>
       </motion.div>
 
-      {/* Soft light behind the portrait so the figure sits in the page, not on top of it */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute bottom-0 left-1/2 z-0 h-[75%] w-[120%] -translate-x-1/2 lg:left-auto lg:right-[-6vw] lg:h-[100%] lg:w-[62vw] lg:translate-x-0"
-        style={{ background: "radial-gradient(closest-side at 50% 60%, rgba(220,217,210,0.85), rgba(220,217,210,0.35) 55%, rgba(243,240,233,0) 100%)" }}
-      />
       {/* Shared film grain over page and photo */}
       <div aria-hidden className="grain pointer-events-none absolute inset-0 z-[3] opacity-40" />
 
-      {/* Portrait: large black & white cut-out anchored to the bottom, behind the name */}
+      {/* Portrait: B&W "ink on paper" — its highlights are the page colour and its mask is very soft, so there is no cut-out edge */}
       {person.portrait && (
         <motion.div
           aria-hidden={false}
-          className="pointer-events-none absolute bottom-0 left-1/2 z-[1] h-[58%] -translate-x-1/2 [@media(max-height:700px)]:h-[50%] sm:h-[62%] lg:left-auto lg:right-[7vw] lg:h-[80%] lg:translate-x-0 [@media(max-height:700px)]:lg:h-[80%]"
+          className="pointer-events-none absolute bottom-0 left-1/2 z-[1] h-[58%] -translate-x-1/2 [@media(orientation:portrait)_and_(max-height:700px)]:h-[50%] sm:h-[62%] wide:left-auto wide:right-[6vw] wide:h-[84%] wide:translate-x-0 [@media(orientation:landscape)_and_(max-height:500px)]:h-[60%]"
           style={{ y: portraitY, aspectRatio: `${person.portrait.width} / ${person.portrait.height}` }}
           initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
           animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
@@ -89,7 +83,7 @@ export function Hero({ locale, dict, person, cvHref }: HeroProps) {
 
       {/* Name, two layers: solid charcoal behind the portrait, ivory outline in front of it —
           the letters read on the page and "cut" through the photo. */}
-      <div className="relative mb-auto mt-8 lg:my-0">
+      <div className="relative mb-auto mt-8 wide:my-0">
         <motion.div style={{ y: nameY, opacity: fade }} className="relative z-0">
           <SplitReveal
             as="h1"

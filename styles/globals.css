@@ -27,6 +27,13 @@
   --text-lede: clamp(1.25rem, 2.1vw, 1.75rem);
 }
 
+/* Wide layout: desktop/tablet landscape AND phones held horizontally. */
+@custom-variant wide {
+  @media (min-width: 1024px), (orientation: landscape) and (min-width: 600px) {
+    @slot;
+  }
+}
+
 /* ───────────────────────── Base ───────────────────────── */
 @layer base {
   html {

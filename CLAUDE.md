@@ -38,6 +38,8 @@ npm run build            # o: npm run verify (todo)
 - Escala: `text-mega`, `text-giant`, `text-display`, `text-headline`, `text-lede`; utilidades `label`, `px-gutter`, `grain`, `link-underline`, `placeholder-text`.
 - Composición: grid de 12 columnas, asimetría, mucho espacio negativo, marcadores de sección `(01) —— Label` (`SectionLabel`).
 - Superficies oscuras: marcar con `data-surface="dark"` para que el header cambie de color. `SurfaceShift` hace la transición marfil→carbón con el scroll.
+- Fotos personales: blanco y negro con la paleta (duotono carbón → marfil). Retrato del hero = "tinta sobre papel" (`portrait-ink.png`): luces = color de la página y máscara muy suave, para que no parezca un recorte. Sin IA sobre la apariencia de Marcos salvo que él lo pida.
+- Variante `wide:` (globals.css): escritorio/tablet horizontal **y móvil en horizontal** usan la composición de escritorio del hero.
 - Imágenes: siempre mediante `EditorialImage` (revelado por máscara; el disparador in-view está en el `<figure>` porque IntersectionObserver ignora elementos recortados al 100 %).
 
 ## Motion

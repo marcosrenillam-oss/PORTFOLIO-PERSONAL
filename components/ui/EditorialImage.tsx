@@ -55,6 +55,23 @@ export function EditorialImage({
   const useParallax = parallax && !reduce;
 
   const inner = image ? (
+    image.cutout ? (
+      <div className="absolute inset-0 overflow-hidden bg-stone">
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{ background: "radial-gradient(90% 70% at 50% 35%, #f6f4ef 0%, #e4e1da 55%, #d4d0c7 100%)" }}
+        />
+        <Image
+          src={image.src}
+          alt={image.alt[locale]}
+          fill
+          sizes={sizes}
+          priority={priority}
+          className="object-contain object-bottom pt-[6%]"
+        />
+      </div>
+    ) : (
     <Image
       src={image.src}
       alt={image.alt[locale]}
@@ -62,10 +79,11 @@ export function EditorialImage({
       sizes={sizes}
       priority={priority}
       className={cn(
-        "object-cover",
+        image.cutout ? "object-contain object-bottom" : "object-cover",
         hoverZoom && "transition-transform duration-[1.4s] ease-[var(--ease-expo)] group-hover:scale-[1.04]",
       )}
     />
+    )
   ) : (
     <PlaceholderArt tone={tone} label={placeholder} figure={figure} hoverZoom={hoverZoom} />
   );

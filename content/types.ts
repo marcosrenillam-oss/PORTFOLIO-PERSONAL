@@ -27,6 +27,8 @@ export interface ImageAsset {
   width: number;
   height: number;
   caption?: Localized;
+  /** Transparent PNG cut-out (silhouette): shown whole, standing on a stone panel instead of cropped. */
+  cutout?: boolean;
 }
 
 export interface ExternalLink {
@@ -172,5 +174,7 @@ export interface Project {
   featured: boolean;
   /** Included in the portfolio PDF. */
   inPortfolio: boolean;
+  /** Public links: live product, repository, article… */
+  links?: { label: Localized; url: string }[];
   caseStudy: CaseStudy;
 }

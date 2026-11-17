@@ -163,6 +163,11 @@ function ProjectOpener({ locale, project, index }: { locale: Locale; project: Pr
             </View>
           ))}
           <Text style={[s.serif, { fontSize: 10, marginTop: 8, color: brand.steelInk }]}>{kind.description[locale]}</Text>
+          {project.links?.map((link) => (
+            <Link key={link.url} src={link.url} style={{ fontSize: 8.6, marginTop: 5, color: brand.charcoal, textDecoration: "none" }}>
+              {`${link.label[locale]}: ${link.url.replace(/^https?:\/\//, "")}`}
+            </Link>
+          ))}
         </View>
       </View>
       <Footer locale={locale} />

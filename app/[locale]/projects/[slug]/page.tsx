@@ -13,6 +13,7 @@ import { EditorialImage } from "@/components/ui/EditorialImage";
 import { Txt } from "@/components/ui/Txt";
 import { Chip } from "@/components/ui/Chip";
 import { Arrow } from "@/components/ui/Arrow";
+import { ButtonLink } from "@/components/ui/ButtonLink";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -85,6 +86,15 @@ export default async function ProjectPage({ params }: Props) {
             </Reveal>
           ))}
         </dl>
+        {project.links && project.links.length > 0 && (
+          <Reveal delay={0.4} className="mt-10 flex flex-wrap gap-3">
+            {project.links.map((link, i) => (
+              <ButtonLink key={link.url} href={link.url} external icon="up-right" variant={i === 0 ? "solid" : "outline"}>
+                {link.label[locale]}
+              </ButtonLink>
+            ))}
+          </Reveal>
+        )}
       </header>
 
       {/* Cover */}

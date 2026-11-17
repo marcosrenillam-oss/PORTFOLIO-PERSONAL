@@ -16,10 +16,12 @@ export const person: Person = {
   location: { es: "Madrid, España", en: "Madrid, Spain" },
   availability: { es: "Incorporación inmediata", en: "Available to start immediately" },
   portrait: {
-    src: "/images/profile/portrait.jpg",
-    alt: { es: "Retrato de Marcos Renilla", en: "Portrait of Marcos Renilla" },
-    width: 1086,
-    height: 1448,
+    // Cut-out from a frame of Marcos's own video (background removed, no other edits to his appearance).
+    src: "/images/profile/portrait-cutout.png",
+    alt: { es: "Marcos Renilla", en: "Marcos Renilla" },
+    width: 1062,
+    height: 1800,
+    cutout: true,
   },
   aboutPhoto: {
     src: "/images/profile/about.jpg",

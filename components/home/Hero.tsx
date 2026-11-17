@@ -29,7 +29,7 @@ export function Hero({ locale, dict, person, cvHref }: HeroProps) {
   const [first, ...rest] = person.brandName.toUpperCase().split(" ");
   const last = rest.join(" ");
   const year = new Date().getFullYear();
-  const nameClass = "display-tight text-[clamp(2.6rem,min(17vw,25svh),17rem)] uppercase";
+  const nameClass = "display-tight text-[clamp(2.6rem,min(17vw,28svh),17rem)] uppercase";
   const nameLines = ["", "pl-[6vw] wide:pl-[12vw]"];
 
   const appear = (delay: number) => ({
@@ -64,7 +64,7 @@ export function Hero({ locale, dict, person, cvHref }: HeroProps) {
       {person.portrait && (
         <motion.div
           aria-hidden={false}
-          className="pointer-events-none absolute bottom-0 left-1/2 z-[1] h-[58%] -translate-x-1/2 [@media(orientation:portrait)_and_(max-height:700px)]:h-[50%] sm:h-[62%] wide:left-auto wide:right-[6vw] wide:h-[84%] wide:translate-x-0 [@media(orientation:landscape)_and_(max-height:500px)]:h-[60%]"
+          className="pointer-events-none absolute bottom-0 left-1/2 z-[1] h-[58%] -translate-x-1/2 [@media(orientation:portrait)_and_(max-height:700px)]:h-[50%] sm:h-[62%] wide:left-[50vw] wide:h-[calc(100%-10rem)] wide:translate-x-0 [@media(orientation:landscape)_and_(max-height:500px)]:h-[68%] [@media(orientation:landscape)_and_(max-height:500px)]:left-[42vw]"
           style={{ y: portraitY, aspectRatio: `${person.portrait.width} / ${person.portrait.height}` }}
           initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
           animate={{ clipPath: "inset(0% 0% 0% 0%)" }}

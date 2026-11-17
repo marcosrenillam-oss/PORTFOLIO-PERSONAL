@@ -8,7 +8,7 @@ Ecosistema profesional de **Marcos Renilla**: web portfolio (ES/EN) + CV PDF (ES
 2. **Única fuente de verdad.** Los datos personales solo viven en `content/*.ts`. Componentes (`components/`, `app/`) y PDF (`pdf/`) leen de `@/content`; nunca escribas datos dentro de ellos. Los textos de interfaz van en `content/ui.ts`.
 3. **Bilingüe siempre.** Todo texto visible es `Localized` (`{ es, en }`), con la misma estructura y calidad en ambos idiomas, redactado con naturalidad (no traducción literal). `npm run content:check` falla si los arrays ES/EN no coinciden.
 4. **Tipos de proyecto explícitos**: `professional` (real), `personal` (real, iniciativa propia), `concept` (ejercicio/académico, nunca presentado como real). Resultados solo si son verificables.
-5. **Sin barras de porcentaje ni niveles inventados** en competencias.
+5. **Habilidades: una sola lista** (`content/skills.ts`), sin categorías (decisión de Marcos), sin barras de porcentaje ni niveles inventados.
 6. **PDF siempre sincronizados**: tras cambiar `/content`, ejecutar `npm run export:all` y `npm run pdf:check`, y hacer commit de los PDF de `public/downloads/`. La huella `content:<hash>` en los metadatos detecta PDF obsoletos. `npm run build` los regenera (prebuild).
 7. **CV compatible con ATS**: una columna, orden de lectura = orden visual, encabezados estándar, texto seleccionable, sin iconos que sustituyan información, sin tablas, **sin letter-spacing en mayúsculas** (se extrae como "E D U C A T I O N"), sin guionado (desactivado en `pdf/fonts.ts`). Objetivo: 1 página (`pdf:check` avisa si hay más).
 8. No afirmar que algo está probado/publicado sin haberlo ejecutado.

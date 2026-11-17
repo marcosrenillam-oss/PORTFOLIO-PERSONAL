@@ -8,7 +8,7 @@ import {
   languages,
   person,
   profile,
-  skillCategories,
+  skills,
 } from "@/content";
 import type { Locale } from "@/content/types";
 import { brand } from "@/lib/brand";
@@ -96,7 +96,7 @@ export function CvDocument({ locale, siteUrl, contentHash }: { locale: Locale; s
   const d = getDictionary(locale);
   const roles = experience.filter((e) => e.inCv);
   const credentials = [...courses, ...certifications];
-  const allTools = Array.from(new Set(skillCategories.flatMap((c) => c.tools)));
+  const allTools = skills.tools;
   // Until the site has a public URL (NEXT_PUBLIC_SITE_URL / Vercel), the CV shows a placeholder.
   const portfolioUrl = siteUrl ? `${siteUrl}/${locale}` : undefined;
   const portfolioDisplay = portfolioUrl ? portfolioUrl.replace(/^https?:\/\//, "") : "[ADD WEBSITE URL]";
@@ -187,12 +187,7 @@ export function CvDocument({ locale, siteUrl, contentHash }: { locale: Locale; s
         )}
 
         <Section title={d.cv.skills}>
-          {skillCategories.map((cat) => (
-            <Text key={cat.id} style={{ marginBottom: 2.5 }}>
-              <Text style={s.inlineLabel}>{cat.title[locale]}: </Text>
-              <PText>{cat.skills[locale].join(", ")}</PText>
-            </Text>
-          ))}
+          <PText>{skills.list[locale].join(", ")}</PText>
           {allTools.length > 0 && (
             <Text style={{ marginTop: 3 }}>
               <Text style={s.inlineLabel}>{d.cv.tools}: </Text>

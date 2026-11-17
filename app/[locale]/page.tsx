@@ -1,4 +1,4 @@
-import { experience, person, profile, projects, skillCategories } from "@/content";
+import { experience, person, profile, projects, skills } from "@/content";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { downloads } from "@/lib/site";
 import { notFound } from "next/navigation";
@@ -21,7 +21,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <Intro locale={locale} dict={dict} profile={profile} person={person} />
       {featured.length > 0 && <SelectedWork locale={locale} dict={dict} projects={featured.slice(0, 6)} />}
       <ExperiencePreview locale={locale} dict={dict} items={experience.slice(0, 4)} />
-      <SkillsPreview locale={locale} dict={dict} categories={skillCategories} />
+      <SkillsPreview locale={locale} dict={dict} skills={skills} />
       <CtaBand locale={locale} dict={dict} />
     </>
   );

@@ -50,7 +50,7 @@ Requiere Node 20.9 o superior (recomendado 22, ver `.nvmrc`).
 | Introducción, texto de *Sobre mí*, resumen del CV, intereses, forma de trabajar, sectores | `content/profile.ts` |
 | Experiencia profesional | `content/experience.ts` |
 | Formación, cursos, certificaciones, idiomas | `content/education.ts` |
-| Competencias y herramientas | `content/skills.ts` |
+| Habilidades (lista única, sin categorías) y herramientas | `content/skills.ts` |
 | Proyectos y casos de estudio | `content/projects.ts` |
 | Textos de interfaz (menú, botones, títulos de sección, encabezados del CV) | `content/ui.ts` |
 | Colores | `styles/globals.css` (`@theme`) **y** `lib/brand.ts` (PDF) |

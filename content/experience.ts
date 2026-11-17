@@ -15,11 +15,22 @@ export const experience: Experience[] = [
     employmentType: { es: "Jornada completa", en: "Full-time" },
     location: { es: "Madrid, España · Presencial", en: "Madrid, Spain · On-site" },
     start: "2024-07",
-    end: "2026-11",
-    summary: { es: "[ADD EXPERIENCE]", en: "[ADD EXPERIENCE]" },
+    end: "2026-12",
+    summary: {
+      es: "Celador a jornada completa en uno de los grandes hospitales públicos de Madrid, compaginado con los estudios de Periodismo.",
+      en: "Full-time hospital porter at one of Madrid's major public hospitals, combined with my Journalism degree.",
+    },
     responsibilities: {
-      es: ["[ADD RESPONSIBILITY]", "[ADD RESPONSIBILITY]"],
-      en: ["[ADD RESPONSIBILITY]", "[ADD RESPONSIBILITY]"],
+      es: [
+        "Traslado y acompañamiento de pacientes entre unidades, plantas y pruebas.",
+        "Apoyo al personal sanitario en la movilización de pacientes.",
+        "Atención e información a pacientes y familiares.",
+      ],
+      en: [
+        "Transferred and accompanied patients between wards, units and tests.",
+        "Supported clinical staff with patient handling.",
+        "Assisted and informed patients and their families.",
+      ],
     },
     learnings: {
       es: ["Manejo de la presión", "Don de gentes"],
@@ -35,10 +46,19 @@ export const experience: Experience[] = [
     location: { es: "Madrid, España · Presencial", en: "Madrid, Spain · On-site" },
     start: "2024-03",
     end: "2024-05",
-    summary: { es: "[ADD EXPERIENCE]", en: "[ADD EXPERIENCE]" },
+    summary: {
+      es: "Responsable de una sección semanal de radio dedicada a resumir las corridas de toros de la feria de Madrid.",
+      en: "In charge of a weekly radio segment recapping the bullfights of the Madrid bullfighting fair.",
+    },
     responsibilities: {
-      es: ["[ADD RESPONSIBILITY]", "[ADD RESPONSIBILITY]"],
-      en: ["[ADD RESPONSIBILITY]", "[ADD RESPONSIBILITY]"],
+      es: [
+        "Conducción de una sección semanal con el resumen de las corridas de la feria de Madrid.",
+        "Seguimiento de la feria y selección de lo más relevante de cada semana para la sección.",
+      ],
+      en: [
+        "Hosted a weekly segment summarising the bullfights of the Madrid fair.",
+        "Followed the fair and selected each week's key moments for the segment.",
+      ],
     },
     learnings: {
       es: ["Gestión de proyectos", "Manejo de la presión"],

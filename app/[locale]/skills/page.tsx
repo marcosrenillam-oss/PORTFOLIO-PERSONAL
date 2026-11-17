@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation";
-import { skillCategories } from "@/content";
+import { skills } from "@/content";
 import { getDictionary, isLocale } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Reveal } from "@/components/motion/Reveal";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Txt } from "@/components/ui/Txt";
 import { Chip } from "@/components/ui/Chip";
 
@@ -24,40 +25,38 @@ export default async function SkillsPage({ params }: Props) {
   return (
     <>
       <PageHeader index="04" label={d.nav.skills} title={d.pages.skills.title} lead={d.pages.skills.lead} />
-      <section data-surface="light" className="px-gutter pb-32 md:pb-44">
-        {skillCategories.map((cat, i) => (
-          <div key={cat.id} id={cat.id} className="group grid scroll-mt-28 gap-8 border-t border-charcoal/15 py-14 md:grid-cols-12 md:py-20">
-            <Reveal className="md:col-span-5">
-              <span className="label tabular-nums text-steel-ink">{String(i + 1).padStart(2, "0")}</span>
-              <h2 className="mt-4 font-display text-[clamp(2.25rem,5vw,4.5rem)] font-medium leading-[0.95] tracking-[-0.045em] transition-colors duration-500 group-hover:text-steel-ink">
-                {cat.title[locale]}
-              </h2>
-              <p className="mt-5 max-w-sm leading-relaxed text-ink-2">
-                <Txt>{cat.description[locale]}</Txt>
-              </p>
+      <section data-surface="light" className="px-gutter pb-24 md:pb-36">
+        <ol className="grid border-t border-charcoal/15 md:grid-cols-2 md:gap-x-12">
+          {skills.list[locale].map((skill, i) => (
+            <Reveal
+              as="li"
+              key={skill}
+              delay={(i % 2) * 0.05}
+              className="group flex items-baseline gap-6 border-b border-charcoal/15 py-6 md:py-8"
+            >
+              <span className="label w-8 shrink-0 tabular-nums text-steel-ink">{String(i + 1).padStart(2, "0")}</span>
+              <span className="font-display text-[clamp(1.6rem,3vw,2.75rem)] leading-[1.05] tracking-[-0.035em] transition-transform duration-700 ease-[var(--ease-expo)] group-hover:translate-x-2">
+                <Txt>{skill}</Txt>
+              </span>
             </Reveal>
-            <Reveal delay={0.05} className="md:col-span-6 md:col-start-7">
-              <ul className="divide-y divide-charcoal/10 border-b border-charcoal/10">
-                {cat.skills[locale].map((skill, j) => (
-                  <li key={j} className="flex items-baseline justify-between gap-4 py-3.5 text-lg">
-                    <Txt>{skill}</Txt>
-                  </li>
-                ))}
-              </ul>
-              {cat.tools.length > 0 && (
-                <div className="mt-8">
-                  <h3 className="label text-steel-ink">{d.pages.skills.tools}</h3>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {cat.tools.map((tool, j) => (
-                      <Chip key={j}>{tool}</Chip>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </Reveal>
-          </div>
-        ))}
+          ))}
+        </ol>
       </section>
+
+      {skills.tools.length > 0 && (
+        <section data-surface="dark" className="px-gutter bg-charcoal py-24 text-ivory md:py-32">
+          <Reveal>
+            <SectionLabel className="text-steel">{d.pages.skills.tools}</SectionLabel>
+          </Reveal>
+          <Reveal delay={0.05} className="mt-10 flex flex-wrap gap-3">
+            {skills.tools.map((tool, i) => (
+              <Chip key={i} tone="dark" className="px-5 py-2 text-base">
+                {tool}
+              </Chip>
+            ))}
+          </Reveal>
+        </section>
+      )}
     </>
   );
 }

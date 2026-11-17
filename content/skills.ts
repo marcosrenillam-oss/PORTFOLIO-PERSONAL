@@ -1,48 +1,44 @@
-import type { SkillCategory } from "./types";
+import type { Skills } from "./types";
 
 /**
- * SKILLS & TOOLS — grouped in five categories.
- * No percentages or invented levels: list skills and tools you can actually back up.
- * `tools` are product names (identical in both languages).
- * Skills below come from Marcos's LinkedIn "Aptitudes" section.
+ * SKILLS & TOOLS — a single list, no categories, no percentages or levels.
+ * Keep ES and EN in the same order and with the same number of items.
+ * Selected with Marcos (Nov 2026) from his studies (Journalism, UFV), his radio
+ * section at El Toro TV, his work as a hospital porter and his LinkedIn skills.
  */
 
-const placeholderSkills = { es: ["[ADD SKILL]", "[ADD SKILL]", "[ADD SKILL]"], en: ["[ADD SKILL]", "[ADD SKILL]", "[ADD SKILL]"] };
-
-export const skillCategories: SkillCategory[] = [
-  {
-    id: "communication",
-    title: { es: "Comunicación", en: "Communication" },
-    description: { es: "[ADD SKILL]", en: "[ADD SKILL]" },
-    skills: { es: ["Don de gentes"], en: ["People skills"] },
-    tools: ["[ADD TOOL]"],
+export const skills: Skills = {
+  list: {
+    es: [
+      "Comunicación oral y locución",
+      "Redacción periodística",
+      "Periodismo deportivo",
+      "Creación de contenido",
+      "Producción de contenido para radio",
+      "Medios digitales",
+      "Investigación y documentación",
+      "Gestión de proyectos",
+      "Organización y gestión del tiempo",
+      "Trabajo en equipo",
+      "Trato con el público",
+      "Trabajo bajo presión",
+      "Adaptabilidad",
+    ],
+    en: [
+      "Public speaking & on-air presenting",
+      "Journalistic writing",
+      "Sports journalism",
+      "Content creation",
+      "Radio content production",
+      "Digital media",
+      "Research & fact-finding",
+      "Project management",
+      "Organization & time management",
+      "Teamwork",
+      "Dealing with the public",
+      "Working under pressure",
+      "Adaptability",
+    ],
   },
-  {
-    id: "marketing",
-    title: { es: "Marketing y digital", en: "Marketing & Digital" },
-    description: { es: "[ADD SKILL]", en: "[ADD SKILL]" },
-    skills: { es: ["Medios digitales"], en: ["Digital media"] },
-    tools: ["[ADD TOOL]"],
-  },
-  {
-    id: "creativity",
-    title: { es: "Creatividad y contenido", en: "Creativity & Content" },
-    description: { es: "[ADD SKILL]", en: "[ADD SKILL]" },
-    skills: { es: ["Creación de contenido"], en: ["Content creation"] },
-    tools: ["[ADD TOOL]"],
-  },
-  {
-    id: "project-management",
-    title: { es: "Gestión de proyectos", en: "Project Management" },
-    description: { es: "[ADD SKILL]", en: "[ADD SKILL]" },
-    skills: { es: ["Gestión de proyectos", "Manejo de la presión"], en: ["Project management", "Working under pressure"] },
-    tools: ["[ADD TOOL]"],
-  },
-  {
-    id: "technology",
-    title: { es: "Tecnología e innovación", en: "Technology & Innovation" },
-    description: { es: "[ADD SKILL]", en: "[ADD SKILL]" },
-    skills: placeholderSkills,
-    tools: ["[ADD TOOL]"],
-  },
-];
+  tools: ["[ADD TOOL]"],
+};

@@ -1,4 +1,4 @@
-import type { Locale, SkillCategory } from "@/content/types";
+import type { Locale, Skills } from "@/content/types";
 import type { Dictionary } from "@/lib/i18n";
 import { routes } from "@/lib/site";
 import { Reveal } from "@/components/motion/Reveal";
@@ -7,7 +7,9 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Txt } from "@/components/ui/Txt";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 
-export function SkillsPreview({ locale, dict, categories }: { locale: Locale; dict: Dictionary; categories: SkillCategory[] }) {
+/** Skills as one flowing editorial line, separated by steel slashes. */
+export function SkillsPreview({ locale, dict, skills }: { locale: Locale; dict: Dictionary; skills: Skills }) {
+  const list = skills.list[locale];
   return (
     <section data-surface="light" className="px-gutter pb-28 md:pb-40">
       <div className="grid gap-8 md:grid-cols-12">
@@ -19,30 +21,26 @@ export function SkillsPreview({ locale, dict, categories }: { locale: Locale; di
         <SplitReveal lines={[dict.nav.skills]} className="display-tight text-display md:col-span-8" />
       </div>
 
-      <div className="mt-16 grid gap-px overflow-hidden rounded-sm bg-charcoal/12 sm:grid-cols-2 md:mt-24 lg:grid-cols-5">
-        {categories.map((cat, i) => (
-          <Reveal key={cat.id} delay={i * 0.06} className="group relative bg-ivory p-6 md:p-7">
-            <div className="flex flex-col justify-between gap-8 sm:min-h-56 lg:min-h-80">
-              <span className="label tabular-nums text-steel-ink">{String(i + 1).padStart(2, "0")}</span>
-              <div>
-                <h3 className="font-display text-2xl leading-[1.05] tracking-[-0.03em] md:text-[1.7rem]">{cat.title[locale]}</h3>
-                <ul className="mt-5 space-y-1.5 text-sm text-ink-2">
-                  {cat.skills[locale].slice(0, 4).map((s, j) => (
-                    <li key={j}>
-                      <Txt>{s}</Txt>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <span
-              aria-hidden
-              className="absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-steel transition-transform duration-700 ease-[var(--ease-expo)] group-hover:scale-x-100"
-            />
+      <ul className="mt-16 border-t border-charcoal/15 pt-10 md:mt-24 md:pt-14">
+        {list.map((skill, i) => (
+          <Reveal
+            as="li"
+            key={skill}
+            delay={Math.min(i, 8) * 0.04}
+            className="mr-3 inline font-display text-[clamp(1.6rem,3.6vw,3.25rem)] leading-[1.25] tracking-[-0.035em] md:mr-5"
+          >
+            <span className="transition-colors duration-500 hover:text-steel-ink">
+              <Txt>{skill}</Txt>
+            </span>
+            {i < list.length - 1 && (
+              <span aria-hidden className="ml-3 font-serif font-normal italic text-steel md:ml-5">
+                /
+              </span>
+            )}
           </Reveal>
         ))}
-      </div>
-      <Reveal className="mt-12">
+      </ul>
+      <Reveal className="mt-14">
         <ButtonLink href={routes.skills(locale)} variant="outline">
           {dict.actions.allSkills}
         </ButtonLink>

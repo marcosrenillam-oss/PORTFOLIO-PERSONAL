@@ -6,7 +6,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { extractText, getDocumentProxy, getMeta } from "unpdf";
-import { experience, person, projects, skillCategories } from "@/content";
+import { experience, person, projects, skills } from "@/content";
 import { locales, type Locale } from "@/content/types";
 import { contentHash } from "@/lib/content-hash";
 import { getDictionary } from "@/lib/i18n";
@@ -46,7 +46,7 @@ async function main() {
       expect(cvRel, cv.text, [person.fullName, person.positioning[locale]]);
       expect(cvRel, cv.text.toLowerCase(), [d.cv.profile, d.cv.experience, d.cv.education, d.cv.skills, d.cv.languages].map((h) => h.toLowerCase()));
       for (const e of experience.filter((x) => x.inCv)) expect(cvRel, cv.text, [e.organization, e.role[locale]]);
-      for (const c of skillCategories) expect(cvRel, cv.text, [c.title[locale]]);
+      expect(cvRel, cv.text, skills.list[locale]);
       if (/\b(?:[A-Z] ){4,}[A-Z]\b/.test(cv.text)) warnings.push(`${cvRel}: spaced-out capitals detected (bad for ATS)`);
       if (cv.pages > 1) warnings.push(`${cvRel}: ${cv.pages} pages (target is 1)`);
       console.log(`  ✓ ${cvRel} — ${cv.pages} page(s), ${cv.text.length} characters of selectable text`);

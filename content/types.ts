@@ -119,19 +119,10 @@ export interface Language {
   level: Localized;
 }
 
-export type SkillCategoryId =
-  | "communication"
-  | "marketing"
-  | "creativity"
-  | "project-management"
-  | "technology";
-
-export interface SkillCategory {
-  id: SkillCategoryId;
-  title: Localized;
-  description: Localized;
-  skills: Localized<string[]>;
-  /** Software and tools, written as their product names. */
+/** One flat list of skills (no categories, no levels) plus the tools actually used. */
+export interface Skills {
+  list: Localized<string[]>;
+  /** Software and tools, written as their product names (same in both languages). */
   tools: string[];
 }
 

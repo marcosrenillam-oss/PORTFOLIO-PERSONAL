@@ -61,8 +61,8 @@ export function Hero({ locale, dict, person, cvHref }: HeroProps) {
       {person.portrait && (
         <motion.div
           aria-hidden={false}
-          className="pointer-events-none absolute bottom-0 left-1/2 z-[1] aspect-[1080/1150] h-[60%] -translate-x-1/2 sm:h-[72%] md:left-auto md:right-[4vw] md:h-[88%] md:translate-x-0 lg:right-[7vw]"
-          style={{ y: portraitY }}
+          className="pointer-events-none absolute bottom-32 left-1/2 z-[1] h-[50%] -translate-x-1/2 sm:h-[60%] md:bottom-0 md:left-auto md:right-[4vw] md:h-[80%] md:translate-x-0 lg:right-[7vw]"
+          style={{ y: portraitY, aspectRatio: `${person.portrait.width} / ${person.portrait.height}` }}
           initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
           animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
           transition={reduce ? { duration: 0 } : { duration: 1.6, ease: ease.quart, delay: 0.25 }}

@@ -1,6 +1,6 @@
 import type { Locale } from "@/content/types";
 import type { Dictionary } from "@/lib/i18n";
-import { downloads, routes } from "@/lib/site";
+import { downloads, hasPortfolio, routes } from "@/lib/site";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitReveal } from "@/components/motion/SplitReveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -31,11 +31,13 @@ export function CtaBand({ locale, dict }: { locale: Locale; dict: Dictionary }) 
               {dict.actions.downloadCv}
             </ButtonLink>
           </Magnetic>
-          <Magnetic>
-            <ButtonLink href={downloads.portfolio(locale)} download tone="dark" variant="outline" icon="down">
-              {dict.actions.downloadPortfolio}
-            </ButtonLink>
-          </Magnetic>
+          {hasPortfolio && (
+            <Magnetic>
+              <ButtonLink href={downloads.portfolio(locale)} download tone="dark" variant="outline" icon="down">
+                {dict.actions.downloadPortfolio}
+              </ButtonLink>
+            </Magnetic>
+          )}
         </Reveal>
       </div>
     </section>

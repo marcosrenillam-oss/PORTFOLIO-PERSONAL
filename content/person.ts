@@ -15,9 +15,18 @@ export const person: Person = {
   },
   location: { es: "Madrid, España", en: "Madrid, Spain" },
   availability: { es: "Incorporación inmediata", en: "Available to start immediately" },
-  // [ADD PROFILE PHOTO] — e.g. { src: "/images/profile/portrait.jpg", alt: {...}, width: 1600, height: 2000 }
-  portrait: null,
-  aboutPhoto: null,
+  portrait: {
+    src: "/images/profile/portrait.jpg",
+    alt: { es: "Retrato de Marcos Renilla", en: "Portrait of Marcos Renilla" },
+    width: 1086,
+    height: 1448,
+  },
+  aboutPhoto: {
+    src: "/images/profile/about.jpg",
+    alt: { es: "Marcos Renilla en una azotea", en: "Marcos Renilla on a rooftop" },
+    width: 1600,
+    height: 2133,
+  },
 };
 
 export const contact: Contact = {

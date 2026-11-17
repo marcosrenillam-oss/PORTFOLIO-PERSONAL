@@ -95,24 +95,30 @@ export default async function EducationPage({ params }: Props) {
         </div>
       </section>
 
-      <section data-surface="light" className="px-gutter grid gap-16 pb-24 md:grid-cols-2 md:pb-36">
-        <div>
-          <Reveal>
-            <SectionLabel index="02">{e.courses}</SectionLabel>
-          </Reveal>
-          <CredentialList items={courses} locale={locale} linkLabel={e.viewCredential} />
-        </div>
-        <div>
-          <Reveal>
-            <SectionLabel index="03">{e.certifications}</SectionLabel>
-          </Reveal>
-          <CredentialList items={certifications} locale={locale} linkLabel={e.viewCredential} />
-        </div>
-      </section>
+      {(courses.length > 0 || certifications.length > 0) && (
+        <section data-surface="light" className="px-gutter grid gap-16 pb-24 md:grid-cols-2 md:pb-36">
+          {courses.length > 0 && (
+            <div>
+              <Reveal>
+                <SectionLabel index="02">{e.courses}</SectionLabel>
+              </Reveal>
+              <CredentialList items={courses} locale={locale} linkLabel={e.viewCredential} />
+            </div>
+          )}
+          {certifications.length > 0 && (
+            <div>
+              <Reveal>
+                <SectionLabel index="03">{e.certifications}</SectionLabel>
+              </Reveal>
+              <CredentialList items={certifications} locale={locale} linkLabel={e.viewCredential} />
+            </div>
+          )}
+        </section>
+      )}
 
       <section data-surface="dark" className="px-gutter bg-charcoal py-24 text-ivory md:py-36">
         <Reveal>
-          <SectionLabel index="04" className="text-steel">
+          <SectionLabel index={courses.length > 0 || certifications.length > 0 ? "04" : "02"} className="text-steel">
             {e.languages}
           </SectionLabel>
         </Reveal>

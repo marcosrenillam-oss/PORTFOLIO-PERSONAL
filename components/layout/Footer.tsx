@@ -2,7 +2,7 @@ import Link from "next/link";
 import { contact, person } from "@/content";
 import type { Locale } from "@/content/types";
 import type { Dictionary } from "@/lib/i18n";
-import { downloads, navItems, routes } from "@/lib/site";
+import { downloads, hasPortfolio, navItems, routes } from "@/lib/site";
 import { isEmptyOrPlaceholder } from "@/lib/placeholder";
 import { Txt } from "@/components/ui/Txt";
 import { BackToTop } from "./BackToTop";
@@ -52,9 +52,11 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           <a href={downloads.cv(locale)} download className="link-underline block text-ivory/80 hover:text-ivory">
             {dict.actions.downloadCv} ↓
           </a>
-          <a href={downloads.portfolio(locale)} download className="link-underline block text-ivory/80 hover:text-ivory">
-            {dict.actions.downloadPortfolio} ↓
-          </a>
+          {hasPortfolio && (
+            <a href={downloads.portfolio(locale)} download className="link-underline block text-ivory/80 hover:text-ivory">
+              {dict.actions.downloadPortfolio} ↓
+            </a>
+          )}
         </div>
       </div>
 

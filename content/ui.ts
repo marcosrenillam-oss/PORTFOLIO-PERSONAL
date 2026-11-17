@@ -92,6 +92,11 @@ export const ui = {
       filterAll: { es: "Todos", en: "All" },
       filterLabel: { es: "Filtrar proyectos", en: "Filter work" },
       empty: { es: "No hay proyectos en esta categoría.", en: "No projects in this category yet." },
+      comingSoon: { es: "Proyectos en preparación.", en: "Projects in the works." },
+      comingSoonText: {
+        es: "Muy pronto, casos de estudio de mis proyectos digitales y de contenido.",
+        en: "Case studies of my digital and content projects are coming soon.",
+      },
     },
     caseStudy: {
       overview: { es: "Resumen", en: "Overview" },
@@ -118,7 +123,7 @@ export const ui = {
     },
     education: {
       title: { es: "Formación", en: "Education" },
-      lead: { es: "Formación académica, cursos, certificaciones e idiomas.", en: "Academic background, courses, certifications and languages." },
+      lead: { es: "Formación académica e idiomas.", en: "Academic background and languages." },
       academic: { es: "Formación académica", en: "Academic background" },
       courses: { es: "Cursos", en: "Courses" },
       certifications: { es: "Certificaciones", en: "Certifications" },

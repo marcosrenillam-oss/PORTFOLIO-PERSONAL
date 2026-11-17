@@ -3,7 +3,7 @@ import { contact, person } from "@/content";
 import { locales } from "@/content/types";
 import { getDictionary, isLocale, localeLabels } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/metadata";
-import { downloads } from "@/lib/site";
+import { downloads, hasPortfolio } from "@/lib/site";
 import { isEmptyOrPlaceholder } from "@/lib/placeholder";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitReveal } from "@/components/motion/SplitReveal";
@@ -31,7 +31,7 @@ export default async function ContactPage({ params }: Props) {
 
   const docs = [
     ...locales.map((l) => ({ label: `CV — ${localeLabels[l].long}`, href: downloads.cv(l) })),
-    ...locales.map((l) => ({ label: `Portfolio — ${localeLabels[l].long}`, href: downloads.portfolio(l) })),
+    ...(hasPortfolio ? locales.map((l) => ({ label: `Portfolio — ${localeLabels[l].long}`, href: downloads.portfolio(l) })) : []),
   ];
 
   return (

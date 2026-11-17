@@ -66,8 +66,14 @@ const placeholderProject = (slug: string, kind: ProjectKind): Project => ({
   },
 });
 
-export const projects: Project[] = [
-  placeholderProject("project-01", "professional"),
-  placeholderProject("project-02", "personal"),
-  placeholderProject("project-03", "concept"),
-];
+/**
+ * No projects published yet (Nov 2026). While this list is empty the site hides the
+ * "Work" menu item, the home "Selected work" section and the portfolio PDF download,
+ * and /projects shows a "coming soon" note.
+ * Planned: AI virtual wardrobe, Neryvia app.
+ * To start one quickly: projects.push(placeholderProject("my-slug", "personal")) and fill it in.
+ */
+export const projects: Project[] = [];
+
+/** Template helper kept for convenience when adding new projects. */
+export { placeholderProject };

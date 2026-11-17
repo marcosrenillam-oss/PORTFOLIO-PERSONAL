@@ -1,3 +1,4 @@
+import { projects } from "@/content/projects";
 import type { Locale } from "@/content/types";
 
 /**
@@ -25,8 +26,16 @@ export const routes = {
   contact: (l: Locale) => `/${l}/contact`,
 };
 
-export const navItems = ["about", "experience", "projects", "skills", "education", "contact"] as const;
-export type NavItem = (typeof navItems)[number];
+const allNavItems = ["about", "experience", "projects", "skills", "education", "contact"] as const;
+export type NavItem = (typeof allNavItems)[number];
+
+/** True once at least one project exists in content/projects.ts. */
+export const hasProjects = projects.length > 0;
+/** True when the portfolio PDF has projects worth downloading. */
+export const hasPortfolio = projects.some((p) => p.inPortfolio);
+
+/** Menu items. "Work" stays hidden until there is at least one project. */
+export const navItems: NavItem[] = allNavItems.filter((item) => item !== "projects" || hasProjects);
 
 /** Public paths of the generated PDFs (written by `npm run export:all`). */
 export const downloads = {

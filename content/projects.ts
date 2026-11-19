@@ -73,6 +73,13 @@ const renivyaImg = (file: string, es: string, en: string, width: number, height:
   height,
 });
 
+const sastreaImg = (file: string, es: string, en: string, width: number, height: number) => ({
+  src: `/images/projects/sastrea/${file}`,
+  alt: { es, en },
+  width,
+  height,
+});
+
 const atlasImg = (file: string, es: string, en: string, width: number, height: number) => ({
   src: `/images/projects/atlas/${file}`,
   alt: { es, en },
@@ -81,7 +88,7 @@ const atlasImg = (file: string, es: string, en: string, width: number, height: n
 });
 
 /**
- * Planned next: AI virtual wardrobe, Neryvia app.
+ * Order = order on the site: Renivya, Sastrea, Atlas.
  * To start one quickly: copy the Atlas block, or use placeholderProject("my-slug", "personal") and fill it in.
  */
 export const projects: Project[] = [
@@ -159,6 +166,69 @@ export const projects: Project[] = [
         renivyaImg("gallery-01.jpg", "Elección de país, analítica y lo más importante", "Country choice, analytics and top stories", 2400, 1500),
         renivyaImg("gallery-02.jpg", "Portada del día con primeras planas", "Daily front page with front-page covers", 1600, 2000),
         renivyaImg("gallery-03.jpg", "Ficha de una historia: lo que hay que saber", "Story page: what you need to know", 1600, 2000),
+      ],
+    },
+  },
+  {
+    slug: "sastrea",
+    title: { es: "SASTREA — Armario virtual", en: "SASTREA — Virtual wardrobe" },
+    kind: "personal",
+    categories: ["technology", "content"],
+    year: "2026",
+    organization: null,
+    role: {
+      es: "Idea, producto y dirección de diseño · Desarrollo con Claude Code",
+      en: "Concept, product and design direction · Developed with Claude Code",
+    },
+    summary: {
+      es: "Armario virtual para decidir qué ponerse: tus prendas presentadas como una tienda, un probador con un avatar tuyo y un Color Book para combinar colores con criterio.",
+      en: "A virtual wardrobe to decide what to wear: your clothes displayed like a shop, a fitting room with your own avatar and a Color Book to combine colours with confidence.",
+    },
+    cover: sastreaImg("cover.jpg", "Tres pantallas de Sastrea: Color Book, inicio con el avatar y el armario", "Three Sastrea screens: Color Book, home with the avatar and the wardrobe", 2400, 1500),
+    featured: true,
+    inPortfolio: true,
+    caseStudy: {
+      context: {
+        es: "Elegir qué ponerse cada día suele hacerse con prisa y sin ver todo lo que tienes. Me interesaba unir moda, color y tecnología en una experiencia cuidada, más cercana a una tienda que a una lista.",
+        en: "Choosing what to wear is usually rushed, without seeing everything you own. I wanted to bring fashion, colour and technology together in a polished experience, closer to a shop than to a list.",
+      },
+      objective: {
+        es: "Crear una app que ayude a vestir con intención: ver el armario de un vistazo, probar combinaciones sobre un avatar propio y entender por qué unos colores funcionan juntos.",
+        en: "Build an app that helps you dress with intention: see your wardrobe at a glance, try combinations on your own avatar and understand why some colours work together.",
+      },
+      challenge: {
+        es: "Que la teoría del color resulte fácil y útil, y que el probador y el armario se sientan visuales y agradables, no técnicos.",
+        en: "Making colour theory easy and useful, and making the fitting room and wardrobe feel visual and enjoyable rather than technical.",
+      },
+      role: {
+        es: "Idea, definición de funciones, dirección de diseño y revisión de cada versión. El código se desarrolló con Claude Code a partir de mis indicaciones.",
+        en: "Concept, feature definition, design direction and review of every version. The code was developed with Claude Code following my direction.",
+      },
+      process: {
+        es: "Partí de cómo se elige la ropa en la vida real: mirar el armario, probarse cosas, pensar en el tiempo que hace y planificar el día siguiente. Cada uno de esos momentos se convirtió en una sección de la app.",
+        en: "I started from how people actually choose clothes: looking at the wardrobe, trying things on, thinking about the weather and planning the next day. Each of those moments became a section of the app.",
+      },
+      strategy: {
+        es: "Estética de tienda de moda: fotos de prenda limpias, tonos cálidos y tipografía editorial. Un Color Book inspirado en un clásico libro japonés de combinaciones de color, con nociones de colorimetría para combinar sin miedo.",
+        en: "A fashion-store aesthetic: clean product shots, warm tones and editorial type. A Color Book inspired by a classic Japanese book of colour combinations, with colour-theory basics to combine without fear.",
+      },
+      execution: {
+        es: "Inicio con saludo, tiempo del día y avatar vestido; probador virtual con un avatar propio; armario por prendas, cápsulas y conjuntos con buscador y filtros; «Elegir el de hoy» y «Planificar mañana»; y un Color Book con biblioteca de combinaciones, rueda de color interactiva y combinaciones guardadas.",
+        en: "A home screen with a greeting, the day's weather and a dressed avatar; a virtual fitting room with your own avatar; a wardrobe by items, capsules and outfits with search and filters; \"Choose today's\" and \"Plan tomorrow\"; and a Color Book with a library of combinations, an interactive colour wheel and saved palettes.",
+      },
+      tools: ["Claude Code"],
+      results: {
+        es: ["Prototipo funcional en el iPhone, con armario, probador y Color Book."],
+        en: ["Working prototype on the iPhone, with wardrobe, fitting room and Color Book."],
+      },
+      learnings: {
+        es: "Cómo convertir un hábito diario en un producto: observar qué hace la gente de verdad y diseñar cada pantalla para ese momento concreto.",
+        en: "How to turn a daily habit into a product: observe what people really do and design each screen for that specific moment.",
+      },
+      gallery: [
+        sastreaImg("gallery-01.jpg", "Color Book, rueda de color y armario", "Color Book, colour wheel and wardrobe", 2400, 1500),
+        sastreaImg("gallery-02.jpg", "Inicio con el avatar vestido y el tiempo del día", "Home with the dressed avatar and the day's weather", 1600, 2000),
+        sastreaImg("gallery-03.jpg", "Biblioteca de combinaciones del Color Book", "Color Book library of combinations", 1600, 2000),
       ],
     },
   },

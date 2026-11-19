@@ -39,7 +39,7 @@ npm run build            # o: npm run verify (todo)
 - Escala: `text-mega`, `text-giant`, `text-display`, `text-headline`, `text-lede`; utilidades `label`, `px-gutter`, `grain`, `link-underline`, `placeholder-text`.
 - Composición: grid de 12 columnas, asimetría, mucho espacio negativo, marcadores de sección `(01) —— Label` (`SectionLabel`).
 - Superficies oscuras: marcar con `data-surface="dark"` para que el header cambie de color. `SurfaceShift` hace la transición marfil→carbón con el scroll.
-- Fotos personales: blanco y negro con la paleta (duotono carbón → marfil). Retrato del hero = foto real enmarcada (`portrait.jpg`), fondo desenfocado tipo modo retrato y duotono; **nada de recortes/siluetas** (Marcos los rechazó: parecen pegatinas). Sin IA sobre la apariencia de Marcos salvo que él lo pida.
+- Fotos personales: blanco y negro con la paleta (duotono carbón → marfil). Retrato del hero = **recorte integrado** (`portrait-cutout.png`, sin fondo, decisión de Marcos): bordes con alpha matting y descontaminados, duotono, cortado en seco sobre una línea base del hero (nunca flotando ni con degradado abajo), y nombre en profundidad: "MARCOS" detrás de la cabeza, "RENILLA" delante del cuerpo. Sin sombras (parecen pegatina). Sin IA sobre la apariencia de Marcos salvo que él lo pida.
 - Variante `wide:` (globals.css): escritorio/tablet horizontal **y móvil en horizontal** usan la composición de escritorio del hero.
 - Imágenes: siempre mediante `EditorialImage` (revelado por máscara; el disparador in-view está en el `<figure>` porque IntersectionObserver ignora elementos recortados al 100 %).
 

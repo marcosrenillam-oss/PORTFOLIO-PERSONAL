@@ -31,6 +31,8 @@ export function Hero({ locale, dict, person, cvHref }: HeroProps) {
   const year = new Date().getFullYear();
   const nameClass = "display-tight text-[clamp(2.6rem,min(17vw,28svh),17rem)] uppercase";
   const nameLines = ["", "pl-[6vw] wide:pl-[12vw]"];
+  // Front layer: MARCOS hidden (it stays behind the head), RENILLA solid in front of the body.
+  const frontLines = ["text-transparent", "pl-[6vw] wide:pl-[12vw] text-charcoal"];
 
   const appear = (delay: number) => ({
     initial: { opacity: 0, y: reduce ? 0 : 14 },
@@ -57,14 +59,18 @@ export function Hero({ locale, dict, person, cvHref }: HeroProps) {
         </p>
       </motion.div>
 
+      {/* Baseline: the cut-out is cropped exactly on this hairline, so it stands on the page instead of floating */}
+      <div aria-hidden className="px-gutter pointer-events-none absolute inset-x-0 bottom-0 z-[2]">
+        <div className="h-px w-full bg-charcoal/25" />
+      </div>
       {/* Shared film grain over page and photo */}
       <div aria-hidden className="grain pointer-events-none absolute inset-0 z-[3] opacity-40" />
 
-      {/* Portrait: framed B&W editorial photograph (background lens-blurred), anchored to the bottom edge */}
+      {/* Portrait: B&W cut-out (matted edges, toned to the palette) anchored to the hero baseline */}
       {person.portrait && (
         <motion.div
           aria-hidden={false}
-          className="pointer-events-none absolute bottom-[7.5rem] left-1/2 z-[1] h-[50%] -translate-x-1/2 [@media(orientation:portrait)_and_(max-height:700px)]:h-[44%] sm:h-[56%] wide:bottom-0 wide:left-[50vw] wide:h-[calc(100%-10rem)] wide:translate-x-0 [@media(orientation:landscape)_and_(max-height:500px)]:h-[68%] [@media(orientation:landscape)_and_(max-height:500px)]:left-[42vw]"
+          className="pointer-events-none absolute bottom-0 left-1/2 z-[1] h-[56%] -translate-x-1/2 [@media(orientation:portrait)_and_(max-height:700px)]:h-[50%] sm:h-[60%] wide:bottom-0 wide:left-[50vw] wide:h-[calc(100%-10rem)] wide:translate-x-0 [@media(orientation:landscape)_and_(max-height:500px)]:h-[68%] [@media(orientation:landscape)_and_(max-height:500px)]:left-[42vw]"
           style={{ y: portraitY, aspectRatio: `${person.portrait.width} / ${person.portrait.height}` }}
           initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
           animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
@@ -76,13 +82,12 @@ export function Hero({ locale, dict, person, cvHref }: HeroProps) {
             fill
             priority
             sizes="(min-width: 768px) 60vw, 100vw"
-            className="object-cover"
+            className={person.portrait.cutout ? "object-contain object-bottom" : "object-cover"}
           />
         </motion.div>
       )}
 
-      {/* Name, two layers: solid charcoal behind the portrait, ivory outline in front of it —
-          the letters read on the page and "cut" through the photo. */}
+      {/* Name in depth: "MARCOS" behind the head, "RENILLA" in front of the body — magazine-cover layering */}
       <div className="relative mb-auto mt-8 wide:my-0">
         <motion.div style={{ y: nameY, opacity: fade }} className="relative z-0">
           <SplitReveal
@@ -98,8 +103,8 @@ export function Hero({ locale, dict, person, cvHref }: HeroProps) {
         </motion.div>
         <motion.div
           aria-hidden
-          style={{ y: nameY, opacity: fade, WebkitTextStroke: "1.5px rgba(243,240,233,0.95)" }}
-          className="pointer-events-none absolute inset-0 z-[2] text-transparent"
+          style={{ y: nameY, opacity: fade }}
+          className="pointer-events-none absolute inset-0 z-[2]"
         >
           <SplitReveal
             as="div"
@@ -109,7 +114,7 @@ export function Hero({ locale, dict, person, cvHref }: HeroProps) {
             stagger={0.045}
             lines={[first, last]}
             className={nameClass}
-            lineClassNames={nameLines}
+            lineClassNames={frontLines}
           />
         </motion.div>
       </div>

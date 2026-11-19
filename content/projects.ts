@@ -177,8 +177,8 @@ export const projects: Project[] = [
     year: "2026",
     organization: null,
     role: {
-      es: "Idea, producto y dirección de diseño · Desarrollo con Claude Code",
-      en: "Concept, product and design direction · Developed with Claude Code",
+      es: "Idea, producto y dirección de diseño · Desarrollo con Claude Code y las APIs de OpenAI",
+      en: "Concept, product and design direction · Developed with Claude Code and the OpenAI APIs",
     },
     summary: {
       es: "Armario virtual para decidir qué ponerse: tus prendas presentadas como una tienda, un probador con un avatar tuyo y un Color Book para combinar colores con criterio.",
@@ -187,6 +187,7 @@ export const projects: Project[] = [
     cover: sastreaImg("cover.jpg", "Tres pantallas de Sastrea: Color Book, inicio con el avatar y el armario", "Three Sastrea screens: Color Book, home with the avatar and the wardrobe", 2400, 1500),
     featured: true,
     inPortfolio: true,
+    links: [{ label: { es: "Abrir la app", en: "Open the app" }, url: "https://sastrea.fernandorenilla.es/" }],
     caseStudy: {
       context: {
         es: "Elegir qué ponerse cada día suele hacerse con prisa y sin ver todo lo que tienes. Me interesaba unir moda, color y tecnología en una experiencia cuidada, más cercana a una tienda que a una lista.",
@@ -201,25 +202,25 @@ export const projects: Project[] = [
         en: "Making colour theory easy and useful, and making the fitting room and wardrobe feel visual and enjoyable rather than technical.",
       },
       role: {
-        es: "Idea, definición de funciones, dirección de diseño y revisión de cada versión. El código se desarrolló con Claude Code a partir de mis indicaciones.",
-        en: "Concept, feature definition, design direction and review of every version. The code was developed with Claude Code following my direction.",
+        es: "Idea, definición de funciones, dirección de diseño y revisión de cada versión. El código se desarrolló con Claude Code a partir de mis indicaciones, con las APIs de OpenAI para las funciones de IA.",
+        en: "Concept, feature definition, design direction and review of every version. The code was developed with Claude Code following my direction, using the OpenAI APIs for the AI features.",
       },
       process: {
         es: "Partí de cómo se elige la ropa en la vida real: mirar el armario, probarse cosas, pensar en el tiempo que hace y planificar el día siguiente. Cada uno de esos momentos se convirtió en una sección de la app.",
         en: "I started from how people actually choose clothes: looking at the wardrobe, trying things on, thinking about the weather and planning the next day. Each of those moments became a section of the app.",
       },
       strategy: {
-        es: "Estética de tienda de moda: fotos de prenda limpias, tonos cálidos y tipografía editorial. Un Color Book inspirado en un clásico libro japonés de combinaciones de color, con nociones de colorimetría para combinar sin miedo.",
-        en: "A fashion-store aesthetic: clean product shots, warm tones and editorial type. A Color Book inspired by a classic Japanese book of colour combinations, with colour-theory basics to combine without fear.",
+        es: "Estética de tienda de moda: fotos de prenda limpias, tonos cálidos y tipografía editorial. Un Color Book basado en «A Dictionary of Color Combinations», el libro japonés de Sanzo Wada, con nociones de colorimetría para combinar sin miedo.",
+        en: "A fashion-store aesthetic: clean product shots, warm tones and editorial type. A Color Book based on Sanzo Wada's Japanese classic \"A Dictionary of Color Combinations\", with colour-theory basics to combine without fear.",
       },
       execution: {
         es: "Inicio con saludo, tiempo del día y avatar vestido; probador virtual con un avatar propio; armario por prendas, cápsulas y conjuntos con buscador y filtros; «Elegir el de hoy» y «Planificar mañana»; y un Color Book con biblioteca de combinaciones, rueda de color interactiva y combinaciones guardadas.",
         en: "A home screen with a greeting, the day's weather and a dressed avatar; a virtual fitting room with your own avatar; a wardrobe by items, capsules and outfits with search and filters; \"Choose today's\" and \"Plan tomorrow\"; and a Color Book with a library of combinations, an interactive colour wheel and saved palettes.",
       },
-      tools: ["Claude Code"],
+      tools: ["Claude Code", "OpenAI API"],
       results: {
-        es: ["Prototipo funcional en el iPhone, con armario, probador y Color Book."],
-        en: ["Working prototype on the iPhone, with wardrobe, fitting room and Color Book."],
+        es: ["Publicada y en funcionamiento en la web.", "Armario, probador con avatar y Color Book operativos en el iPhone."],
+        en: ["Live and working on the web.", "Wardrobe, avatar fitting room and Color Book working on the iPhone."],
       },
       learnings: {
         es: "Cómo convertir un hábito diario en un producto: observar qué hace la gente de verdad y diseñar cada pantalla para ese momento concreto.",

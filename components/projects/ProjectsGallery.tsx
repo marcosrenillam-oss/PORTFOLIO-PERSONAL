@@ -89,7 +89,7 @@ export function ProjectsGallery({ projects, locale, labels }: GalleryProps) {
                 transition={{ duration: 0.7, ease: ease.expo }}
                 className={cn(index % 2 === 1 && "md:mt-40")}
               >
-                <ProjectCard project={project} locale={locale} index={index} aspect={index % 3 === 0 ? "4 / 5" : "4 / 3"} viewLabel={labels.view} sizes="(min-width: 768px) 50vw, 100vw" />
+                <ProjectCard project={project} locale={locale} index={index} aspect="16 / 10" viewLabel={labels.view} sizes="(min-width: 768px) 50vw, 100vw" />
               </motion.li>
             );
           })}

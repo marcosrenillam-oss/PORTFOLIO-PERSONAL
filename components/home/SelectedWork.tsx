@@ -9,11 +9,11 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import { SurfaceShift } from "./SurfaceShift";
 
-/** Asymmetric editorial layout: positions repeat every three projects. */
+/** Same size and 16:10 ratio for every card (covers are 16:10), with a gentle stagger. */
 const layout = [
-  { col: "md:col-span-7", aspect: "4 / 3" },
-  { col: "md:col-span-4 md:col-start-9 md:mt-48", aspect: "4 / 5" },
-  { col: "md:col-span-8 md:col-start-3", aspect: "16 / 9" },
+  { col: "md:col-span-6", aspect: "16 / 10" },
+  { col: "md:col-span-6 md:mt-40", aspect: "16 / 10" },
+  { col: "md:col-span-6 md:col-start-4", aspect: "16 / 10" },
 ];
 
 export function SelectedWork({ locale, dict, projects }: { locale: Locale; dict: Dictionary; projects: Project[] }) {

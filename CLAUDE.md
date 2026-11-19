@@ -10,9 +10,9 @@ Ecosistema profesional de **Marcos Renilla**: web portfolio (ES/EN) + CV PDF (ES
 4. **Tipos de proyecto explícitos**: `professional` (real), `personal` (real, iniciativa propia), `concept` (ejercicio/académico, nunca presentado como real). Resultados solo si son verificables.
 5. **Textos genéricos, no dirigidos a una empresa concreta** (no nombrar sectores/empresas a los que aplica, ni "busco trabajo").
 6. **Habilidades: una sola lista** (`content/skills.ts`), sin categorías (decisión de Marcos), sin barras de porcentaje ni niveles inventados.
-6. **PDF siempre sincronizados**: tras cambiar `/content`, ejecutar `npm run export:all` y `npm run pdf:check`, y hacer commit de los PDF de `public/downloads/`. La huella `content:<hash>` en los metadatos detecta PDF obsoletos. `npm run build` los regenera (prebuild).
-7. **CV compatible con ATS**: una columna, orden de lectura = orden visual, encabezados estándar, texto seleccionable, sin iconos que sustituyan información, sin tablas, **sin letter-spacing en mayúsculas** (se extrae como "E D U C A T I O N"), sin guionado (desactivado en `pdf/fonts.ts`). Objetivo: 1 página (`pdf:check` avisa si hay más).
-8. No afirmar que algo está probado/publicado sin haberlo ejecutado.
+7. **PDF siempre sincronizados**: tras cambiar `/content`, ejecutar `npm run export:all` y `npm run pdf:check`, y hacer commit de los PDF de `public/downloads/`. La huella `content:<hash>` en los metadatos detecta PDF obsoletos. `npm run build` los regenera (prebuild).
+8. **CV compatible con ATS**: una columna, orden de lectura = orden visual, encabezados estándar, texto seleccionable, sin iconos que sustituyan información, sin tablas, **sin letter-spacing en mayúsculas** (se extrae como "E D U C A T I O N"), sin guionado (desactivado en `pdf/fonts.ts`). Objetivo: 1 página (`pdf:check` avisa si hay más).
+9. No afirmar que algo está probado/publicado sin haberlo ejecutado.
 
 ## Flujo de trabajo para cambios de contenido
 ```bash

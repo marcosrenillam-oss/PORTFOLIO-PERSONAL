@@ -66,7 +66,7 @@ export interface Contact {
 
 export interface Profile {
   /** One or two sentences for the home hero / intro. */
-  intro: Localized;
+  intro: Localized<string[]>;
   /** About page paragraphs. */
   about: Localized<string[]>;
   /** Three to four line summary used at the top of the CV. */

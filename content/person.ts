@@ -16,14 +16,13 @@ export const person: Person = {
   location: { es: "Madrid, España", en: "Madrid, Spain" },
   availability: { es: "Incorporación inmediata", en: "Available to start immediately" },
   portrait: {
-    // Chest-up frame from Marcos's own video (standing, shoulders straight), no AI edits.
-    // Treated as black "ink on paper": highlights match the ivory page and the mask is very soft,
-    // so it reads as a printed photo rather than a cut-out.
-    src: "/images/profile/portrait-ink.png",
+    // Real photo from a frame of Marcos's own video (standing, shoulders straight). Not a cut-out:
+    // the room behind him is blurred like a portrait-mode lens and the whole frame is toned
+    // black & white to the site palette, so it reads as an editorial photograph.
+    src: "/images/profile/portrait.jpg",
     alt: { es: "Retrato de Marcos Renilla en blanco y negro", en: "Black and white portrait of Marcos Renilla" },
-    width: 982,
-    height: 1164,
-    cutout: true,
+    width: 1017,
+    height: 1272,
   },
   aboutPhoto: {
     src: "/images/profile/about.jpg",

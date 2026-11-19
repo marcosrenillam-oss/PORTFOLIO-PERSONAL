@@ -60,11 +60,11 @@ export function Hero({ locale, dict, person, cvHref }: HeroProps) {
       {/* Shared film grain over page and photo */}
       <div aria-hidden className="grain pointer-events-none absolute inset-0 z-[3] opacity-40" />
 
-      {/* Portrait: B&W "ink on paper" — its highlights are the page colour and its mask is very soft, so there is no cut-out edge */}
+      {/* Portrait: framed B&W editorial photograph (background lens-blurred), anchored to the bottom edge */}
       {person.portrait && (
         <motion.div
           aria-hidden={false}
-          className="pointer-events-none absolute bottom-0 left-1/2 z-[1] h-[58%] -translate-x-1/2 [@media(orientation:portrait)_and_(max-height:700px)]:h-[50%] sm:h-[62%] wide:left-[50vw] wide:h-[calc(100%-10rem)] wide:translate-x-0 [@media(orientation:landscape)_and_(max-height:500px)]:h-[68%] [@media(orientation:landscape)_and_(max-height:500px)]:left-[42vw]"
+          className="pointer-events-none absolute bottom-[7.5rem] left-1/2 z-[1] h-[50%] -translate-x-1/2 [@media(orientation:portrait)_and_(max-height:700px)]:h-[44%] sm:h-[56%] wide:bottom-0 wide:left-[50vw] wide:h-[calc(100%-10rem)] wide:translate-x-0 [@media(orientation:landscape)_and_(max-height:500px)]:h-[68%] [@media(orientation:landscape)_and_(max-height:500px)]:left-[42vw]"
           style={{ y: portraitY, aspectRatio: `${person.portrait.width} / ${person.portrait.height}` }}
           initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
           animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
@@ -76,7 +76,7 @@ export function Hero({ locale, dict, person, cvHref }: HeroProps) {
             fill
             priority
             sizes="(min-width: 768px) 60vw, 100vw"
-            className="object-contain object-bottom"
+            className="object-cover"
           />
         </motion.div>
       )}

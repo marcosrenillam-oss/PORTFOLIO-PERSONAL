@@ -9,30 +9,34 @@ import type { Profile } from "./types";
 
 export const profile: Profile = {
   intro: {
-    es: "Comunicación, redes sociales y herramientas digitales. Estudio Periodismo en la Universidad Francisco de Vitoria y combino creatividad, organización e IA para crear contenido y sacar proyectos adelante.",
-    en: "Communication, social media and digital tools. I study Journalism at Universidad Francisco de Vitoria and combine creativity, organisation and AI to create content and get projects off the ground.",
+    es: [
+      "Comunicación, redes sociales y contenido. Periodismo en la Universidad Francisco de Vitoria.",
+      "Me gusta que las cosas salgan bien: organizo, cuido los detalles y pongo energía y creatividad en todo lo que hago.",
+    ],
+    en: [
+      "Communication, social media and content. Journalism at Universidad Francisco de Vitoria.",
+      "I like things done right: I organise, care about the details and bring energy and creativity to everything I do.",
+    ],
   },
   about: {
     es: [
-      "Soy alegre, positivo, creativo e imaginativo. Y un poco perfeccionista: me gusta que las cosas salgan bien y cuidar los detalles.",
-      "Estudio Periodismo en la Universidad Francisco de Vitoria. En El Toro TV llevé una sección semanal de radio, y durante más de dos años he trabajado como celador a jornada completa en el Hospital Clínico San Carlos, compaginándolo con la carrera: una escuela de trato con personas, organización y calma bajo presión.",
-      "Trabajo con herramientas de creación como Canva, CapCut, Photoshop y Lightroom, y con herramientas de IA y automatización como Claude, ChatGPT, Base44, Notion, n8n, Make o Supabase para crear contenido y organizar proyectos.",
-      "Me interesan especialmente el marketing de influencia, la gestión de talento y las redes sociales: el punto en el que se cruzan marcas, creadores y comunidad. Busco un equipo al que aportar energía, creatividad y ganas de hacer las cosas bien.",
+      "Soy alegre, positivo y muy creativo. Me encanta imaginar cosas nuevas y, como buen perfeccionista, no paro hasta que salen bien.",
+      "Fuera del trabajo me encontrarás haciendo deporte, buscando planes con adrenalina o preparando el próximo viaje, siempre bien planeado: disfruto organizando y viendo cómo cada detalle encaja.",
+      "Esa forma de ser es la que llevo a lo que hago. Periodismo en la Universidad Francisco de Vitoria, una sección semanal de radio en El Toro TV y más de dos años como celador a jornada completa, compaginándolo con la carrera, me han enseñado a tratar con personas y a mantener la calma cuando aprieta la presión.",
     ],
     en: [
-      "I'm cheerful, positive, creative and imaginative. And a bit of a perfectionist: I like things done right, down to the details.",
-      "I study Journalism at Universidad Francisco de Vitoria. At El Toro TV I ran a weekly radio segment, and for more than two years I've worked full-time as a hospital porter at Hospital Clínico San Carlos while studying: a real school in dealing with people, organisation and staying calm under pressure.",
-      "I work with creative tools such as Canva, CapCut, Photoshop and Lightroom, and with AI and automation tools such as Claude, ChatGPT, Base44, Notion, n8n, Make and Supabase to create content and organise projects.",
-      "I'm especially drawn to influencer marketing, talent management and social media: the point where brands, creators and communities meet. I'm looking for a team I can bring energy, creativity and a drive to do things well.",
+      "I'm cheerful, positive and very creative. I love imagining new things and, being a perfectionist, I don't stop until they turn out right.",
+      "Away from work you'll find me doing sport, looking for adrenaline-filled plans or preparing my next trip, always well planned: I enjoy organising and seeing every detail fall into place.",
+      "That's the way I bring to my work. Journalism at Universidad Francisco de Vitoria, a weekly radio segment at El Toro TV and more than two years as a full-time hospital porter alongside my degree have taught me to deal with people and stay calm when the pressure is on.",
     ],
   },
   cvSummary: {
-    es: "Estudiante de Periodismo en la Universidad Francisco de Vitoria, con interés en el marketing de influencia, la gestión de talento y las redes sociales. Experiencia en radio y más de dos años compaginando los estudios con un trabajo a jornada completa de atención al público. Perfil creativo, organizado y detallista, con manejo de herramientas de contenido (Canva, CapCut, Photoshop, Lightroom) y de IA y automatización (Claude, ChatGPT, Notion, n8n, Make).",
-    en: "Journalism student at Universidad Francisco de Vitoria, interested in influencer marketing, talent management and social media. Radio experience and more than two years combining my studies with a full-time, public-facing job. Creative, organised and detail-oriented, skilled with content tools (Canva, CapCut, Photoshop, Lightroom) and AI and automation tools (Claude, ChatGPT, Notion, n8n, Make).",
+    es: "Estudiante de Periodismo en la Universidad Francisco de Vitoria, con experiencia en radio y más de dos años compaginando los estudios con un trabajo a jornada completa de atención al público. Perfil creativo, organizado y detallista, con soltura en redes sociales, creación de contenido y herramientas como Canva, CapCut, Photoshop, Lightroom y Notion.",
+    en: "Journalism student at Universidad Francisco de Vitoria with radio experience and more than two years combining my studies with a full-time, public-facing job. Creative, organised and detail-oriented, comfortable with social media, content creation and tools such as Canva, CapCut, Photoshop, Lightroom and Notion.",
   },
   interests: {
-    es: ["Redes sociales y cultura digital", "Viajar, con el viaje bien planeado", "Planes con adrenalina", "Inteligencia artificial", "Deporte"],
-    en: ["Social media and digital culture", "Travel, with every trip well planned", "Adrenaline-filled plans", "Artificial intelligence", "Sport"],
+    es: ["Deporte", "Viajar, con el viaje bien planeado", "Planes con adrenalina", "Redes sociales y cultura digital", "Tecnología"],
+    en: ["Sport", "Travel, with every trip well planned", "Adrenaline-filled plans", "Social media and digital culture", "Technology"],
   },
   approach: [
     {
@@ -57,24 +61,24 @@ export const profile: Profile = {
       },
     },
   ],
-  // Fields Marcos wants to work in. Ordered for influencer marketing / talent agencies (e.g. Mugan Agency, Nov 2026).
+  // Fields Marcos wants to work in. Kept generic on purpose (no single company targeted).
   openTo: {
     es: [
-      "Influencer marketing y talent management",
-      "Redes sociales y contenido",
       "Comunicación y relaciones públicas",
       "Marketing y marketing digital",
+      "Redes sociales y contenido",
       "Agencias creativas",
+      "Influencer marketing y talent management",
       "Medios y entretenimiento",
       "Tecnología y startups",
       "Gestión y coordinación de proyectos",
     ],
     en: [
-      "Influencer marketing & talent management",
-      "Social media & content",
       "Communications & PR",
       "Marketing & digital marketing",
+      "Social media & content",
       "Creative agencies",
+      "Influencer marketing & talent management",
       "Media & entertainment",
       "Tech companies & startups",
       "Project management & coordination",

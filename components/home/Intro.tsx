@@ -15,11 +15,19 @@ export function Intro({ locale, dict, profile }: { locale: Locale; dict: Diction
           <SectionLabel index="01">{dict.home.introLabel}</SectionLabel>
         </Reveal>
         <div className="md:col-span-9 lg:col-span-8">
-          <Reveal>
-            <p className="font-display text-headline font-normal leading-[1.08] tracking-[-0.03em]">
-              <Txt>{profile.intro[locale]}</Txt>
-            </p>
-          </Reveal>
+          {profile.intro[locale].map((paragraph, i) => (
+            <Reveal key={i} delay={i * 0.08}>
+              <p
+                className={
+                  i === 0
+                    ? "font-display text-headline font-normal leading-[1.08] tracking-[-0.03em]"
+                    : "mt-6 max-w-2xl text-lede leading-snug text-ink-2"
+                }
+              >
+                <Txt>{paragraph}</Txt>
+              </p>
+            </Reveal>
+          ))}
           <Reveal delay={0.1} className="mt-10 flex flex-wrap gap-3">
             <ButtonLink href={routes.about(locale)} variant="outline">
               {dict.actions.readMore}

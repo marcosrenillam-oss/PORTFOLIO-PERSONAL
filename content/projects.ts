@@ -66,6 +66,13 @@ const placeholderProject = (slug: string, kind: ProjectKind): Project => ({
   },
 });
 
+const renivyaImg = (file: string, es: string, en: string, width: number, height: number) => ({
+  src: `/images/projects/renivya/${file}`,
+  alt: { es, en },
+  width,
+  height,
+});
+
 const atlasImg = (file: string, es: string, en: string, width: number, height: number) => ({
   src: `/images/projects/atlas/${file}`,
   alt: { es, en },
@@ -78,6 +85,83 @@ const atlasImg = (file: string, es: string, en: string, width: number, height: n
  * To start one quickly: copy the Atlas block, or use placeholderProject("my-slug", "personal") and fill it in.
  */
 export const projects: Project[] = [
+  {
+    slug: "renivya",
+    title: { es: "RENIVYA — Inteligencia informativa", en: "RENIVYA — News intelligence" },
+    kind: "personal",
+    categories: ["journalism", "technology"],
+    year: "2026",
+    organization: null,
+    role: {
+      es: "Idea, criterio editorial y dirección de diseño · Desarrollo con Claude Code",
+      en: "Concept, editorial direction and design direction · Developed with Claude Code",
+    },
+    summary: {
+      es: "App de noticias que reúne lo que cuentan varios periódicos sobre una misma historia, contrasta sus versiones y te dice qué está confirmado y qué no.",
+      en: "A news app that brings together what several newspapers report on the same story, compares their versions and tells you what is confirmed and what is not.",
+    },
+    cover: renivyaImg("cover.jpg", "Tres pantallas de Renivya: bienvenida, portada del día y una historia", "Three Renivya screens: welcome, daily front page and a story", 2400, 1500),
+    featured: true,
+    inPortfolio: true,
+    links: [
+      { label: { es: "Abrir la app", en: "Open the app" }, url: "https://marcosrenillam-oss.github.io/Renivya/" },
+      { label: { es: "Código en GitHub", en: "Code on GitHub" }, url: "https://github.com/marcosrenillam-oss/Renivya" },
+    ],
+    caseStudy: {
+      context: {
+        es: "Una misma noticia aparece contada de formas distintas en cada medio, y comparar versiones lleva tiempo. Desde el Periodismo, la idea era ofrecer una portada que haga ese trabajo de contraste por el lector.",
+        en: "The same news is told differently by every outlet, and comparing versions takes time. Coming from Journalism, the idea was a front page that does that cross-checking for the reader.",
+      },
+      objective: {
+        es: "Reunir las noticias del país del lector y del mundo, agrupar las fuentes en historias y mostrar de forma clara qué está confirmado, en español o en inglés.",
+        en: "Gather news from the reader's country and the world, group sources into stories and clearly show what is confirmed, in Spanish or English.",
+      },
+      challenge: {
+        es: "Agrupar muchas fuentes sin mezclar historias distintas, medir relevancia y solidez de forma objetiva y que la app se mantenga al día sola, sin servidor.",
+        en: "Grouping many sources without mixing different stories, measuring relevance and reliability objectively, and keeping the app up to date on its own, with no server.",
+      },
+      role: {
+        es: "Idea, criterio editorial (qué es una historia, cómo se contrasta, qué se muestra en portada), dirección de diseño y revisión de cada versión. El código se desarrolló con Claude Code a partir de mis indicaciones.",
+        en: "Concept, editorial criteria (what a story is, how it is cross-checked, what goes on the front page), design direction and review of every version. The code was developed with Claude Code following my direction.",
+      },
+      process: {
+        es: "Definí la experiencia como un periódico: portada por país, primeras planas, lo más importante por secciones, ficha de cada historia con «lo que hay que saber» y una sección de analítica. Después la fui construyendo y ajustando por iteraciones.",
+        en: "I shaped the experience like a newspaper: a front page per country, front-page covers, top stories by section, a page per story with \"what you need to know\" and an analytics section. Then I built and refined it in iterations.",
+      },
+      strategy: {
+        es: "Criterio periodístico por encima de todo: la relevancia y la solidez de cada historia se calculan con reglas fijas, no con IA, y cada lector ve solo la prensa de su país y en su idioma. Diseño de periódico clásico: cabecera gótica, columnas y blanco y negro.",
+        en: "Journalistic criteria first: each story's relevance and reliability are calculated with fixed rules, not AI, and each reader sees only their country's press in their language. Classic newspaper design: blackletter masthead, columns and black and white.",
+      },
+      execution: {
+        es: "Aplicación web instalable en el iPhone que se actualiza sola cada 15 minutos: descarga feeds de prensa por país, agrupa y contrasta las noticias, traduce entre español e inglés y publica la nueva edición. Funciona sin conexión con las últimas noticias descargadas.",
+        en: "A web app installable on the iPhone that updates itself every 15 minutes: it fetches press feeds by country, groups and cross-checks the news, translates between Spanish and English and publishes the new edition. It works offline with the latest downloaded news.",
+      },
+      tools: ["Claude Code", "React", "Vite", "Tailwind CSS", "GitHub Actions", "RSS", "Claude API", "GitHub Pages"],
+      results: {
+        es: [
+          "Publicada y en funcionamiento en GitHub Pages.",
+          "Se actualiza sola cada 15 minutos, sin servidor.",
+          "Portada por país y lectura en español o inglés.",
+          "Funciona sin conexión una vez instalada.",
+        ],
+        en: [
+          "Live and working on GitHub Pages.",
+          "Updates itself every 15 minutes, with no server.",
+          "A front page per country, readable in Spanish or English.",
+          "Works offline once installed.",
+        ],
+      },
+      learnings: {
+        es: "Llevar el criterio periodístico a un producto digital: decidir qué hace que algo sea noticia, cómo se contrasta y cómo se presenta para que el lector lo entienda de un vistazo.",
+        en: "Bringing journalistic judgement into a digital product: deciding what makes something news, how it is cross-checked and how to present it so readers get it at a glance.",
+      },
+      gallery: [
+        renivyaImg("gallery-01.jpg", "Elección de país, analítica y lo más importante", "Country choice, analytics and top stories", 2400, 1500),
+        renivyaImg("gallery-02.jpg", "Portada del día con primeras planas", "Daily front page with front-page covers", 1600, 2000),
+        renivyaImg("gallery-03.jpg", "Ficha de una historia: lo que hay que saber", "Story page: what you need to know", 1600, 2000),
+      ],
+    },
+  },
   {
     slug: "atlas",
     title: { es: "ATLAS — Travel Control Center", en: "ATLAS — Travel Control Center" },

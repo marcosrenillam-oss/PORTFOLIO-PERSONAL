@@ -86,9 +86,18 @@ function Introduction({ locale }: { locale: Locale }) {
         <View style={{ width: colW * 1.15, justifyContent: "space-between" }}>
           <View>
             <Label index="01">{d.portfolioPdf.introduction}</Label>
-            <PText style={[s.display, { fontSize: 30, letterSpacing: -1, lineHeight: 1.08, marginTop: 26 }]}>
-              {profile.intro[locale]}
-            </PText>
+            {profile.intro[locale].map((paragraph, i) => (
+              <PText
+                key={i}
+                style={
+                  i === 0
+                    ? [s.display, { fontSize: 30, letterSpacing: -1, lineHeight: 1.08, marginTop: 26 }]
+                    : { fontSize: 12, lineHeight: 1.5, marginTop: 14, color: brand.ink2 }
+                }
+              >
+                {paragraph}
+              </PText>
+            ))}
           </View>
           <View>
             <Label>{d.home.openToLabel}</Label>

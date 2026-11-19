@@ -8,7 +8,8 @@ Ecosistema profesional de **Marcos Renilla**: web portfolio (ES/EN) + CV PDF (ES
 2. **Única fuente de verdad.** Los datos personales solo viven en `content/*.ts`. Componentes (`components/`, `app/`) y PDF (`pdf/`) leen de `@/content`; nunca escribas datos dentro de ellos. Los textos de interfaz van en `content/ui.ts`.
 3. **Bilingüe siempre.** Todo texto visible es `Localized` (`{ es, en }`), con la misma estructura y calidad en ambos idiomas, redactado con naturalidad (no traducción literal). `npm run content:check` falla si los arrays ES/EN no coinciden.
 4. **Tipos de proyecto explícitos**: `professional` (real), `personal` (real, iniciativa propia), `concept` (ejercicio/académico, nunca presentado como real). Resultados solo si son verificables.
-5. **Habilidades: una sola lista** (`content/skills.ts`), sin categorías (decisión de Marcos), sin barras de porcentaje ni niveles inventados.
+5. **Textos genéricos, no dirigidos a una empresa concreta** (no nombrar sectores/empresas a los que aplica, ni "busco trabajo").
+6. **Habilidades: una sola lista** (`content/skills.ts`), sin categorías (decisión de Marcos), sin barras de porcentaje ni niveles inventados.
 6. **PDF siempre sincronizados**: tras cambiar `/content`, ejecutar `npm run export:all` y `npm run pdf:check`, y hacer commit de los PDF de `public/downloads/`. La huella `content:<hash>` en los metadatos detecta PDF obsoletos. `npm run build` los regenera (prebuild).
 7. **CV compatible con ATS**: una columna, orden de lectura = orden visual, encabezados estándar, texto seleccionable, sin iconos que sustituyan información, sin tablas, **sin letter-spacing en mayúsculas** (se extrae como "E D U C A T I O N"), sin guionado (desactivado en `pdf/fonts.ts`). Objetivo: 1 página (`pdf:check` avisa si hay más).
 8. No afirmar que algo está probado/publicado sin haberlo ejecutado.
@@ -38,7 +39,7 @@ npm run build            # o: npm run verify (todo)
 - Escala: `text-mega`, `text-giant`, `text-display`, `text-headline`, `text-lede`; utilidades `label`, `px-gutter`, `grain`, `link-underline`, `placeholder-text`.
 - Composición: grid de 12 columnas, asimetría, mucho espacio negativo, marcadores de sección `(01) —— Label` (`SectionLabel`).
 - Superficies oscuras: marcar con `data-surface="dark"` para que el header cambie de color. `SurfaceShift` hace la transición marfil→carbón con el scroll.
-- Fotos personales: blanco y negro con la paleta (duotono carbón → marfil). Retrato del hero = "tinta sobre papel" (`portrait-ink.png`): luces = color de la página y máscara muy suave, para que no parezca un recorte. Sin IA sobre la apariencia de Marcos salvo que él lo pida.
+- Fotos personales: blanco y negro con la paleta (duotono carbón → marfil). Retrato del hero = foto real enmarcada (`portrait.jpg`), fondo desenfocado tipo modo retrato y duotono; **nada de recortes/siluetas** (Marcos los rechazó: parecen pegatinas). Sin IA sobre la apariencia de Marcos salvo que él lo pida.
 - Variante `wide:` (globals.css): escritorio/tablet horizontal **y móvil en horizontal** usan la composición de escritorio del hero.
 - Imágenes: siempre mediante `EditorialImage` (revelado por máscara; el disparador in-view está en el `<figure>` porque IntersectionObserver ignora elementos recortados al 100 %).
 

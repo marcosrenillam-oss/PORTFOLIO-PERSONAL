@@ -7,7 +7,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Txt } from "@/components/ui/Txt";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 
-/** Skills as one flowing editorial line, separated by steel slashes. */
+/** Skills in an airy numbered grid (one per row on mobile, three columns on desktop). */
 export function SkillsPreview({ locale, dict, skills }: { locale: Locale; dict: Dictionary; skills: Skills }) {
   const list = skills.list[locale];
   return (
@@ -21,22 +21,18 @@ export function SkillsPreview({ locale, dict, skills }: { locale: Locale; dict: 
         <SplitReveal lines={[dict.nav.skills]} className="display-tight text-display md:col-span-8" />
       </div>
 
-      <ul className="mt-16 border-t border-charcoal/15 pt-10 md:mt-24 md:pt-14">
+      <ul className="mt-16 grid gap-x-12 sm:grid-cols-2 md:mt-24 lg:grid-cols-3">
         {list.map((skill, i) => (
           <Reveal
             as="li"
             key={skill}
-            delay={Math.min(i, 8) * 0.04}
-            className="mr-3 inline font-display text-[clamp(1.6rem,3.6vw,3.25rem)] leading-[1.25] tracking-[-0.035em] md:mr-5"
+            delay={(i % 3) * 0.06}
+            className="group flex items-baseline gap-5 border-t border-charcoal/15 py-6 md:py-7"
           >
-            <span className="transition-colors duration-500 hover:text-steel-ink">
+            <span className="label w-7 shrink-0 tabular-nums text-steel-ink">{String(i + 1).padStart(2, "0")}</span>
+            <span className="font-display text-[clamp(1.3rem,2vw,1.85rem)] leading-[1.1] tracking-[-0.025em] transition-transform duration-700 ease-[var(--ease-expo)] group-hover:translate-x-1.5">
               <Txt>{skill}</Txt>
             </span>
-            {i < list.length - 1 && (
-              <span aria-hidden className="ml-3 font-serif font-normal italic text-steel md:ml-5">
-                /
-              </span>
-            )}
           </Reveal>
         ))}
       </ul>
